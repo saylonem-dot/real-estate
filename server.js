@@ -12,6 +12,15 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Serverless / proxy route normalizer
+app.use((req, res, next) => {
+  if (req.originalUrl && req.originalUrl.startsWith('/api') && !req.url.startsWith('/api')) {
+    req.url = req.originalUrl;
+  }
+  next();
+});
+
 app.use(express.static(path.join(__dirname)));
 
 // ============================================================================
