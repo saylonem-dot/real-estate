@@ -601,4 +601,10 @@ async function start() {
   });
 }
 
-start();
+if (require.main === module) {
+  start();
+} else {
+  db.initDatabase().catch(err => console.error(err));
+}
+
+module.exports = app;

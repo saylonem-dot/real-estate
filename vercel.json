@@ -1,0 +1,49 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/admin-login",
+      "destination": "/admin-login.html"
+    },
+    {
+      "source": "/admin",
+      "destination": "/admin.html"
+    },
+    {
+      "source": "/properties",
+      "destination": "/properties.html"
+    },
+    {
+      "source": "/property-detail",
+      "destination": "/property-detail.html"
+    },
+    {
+      "source": "/offplan",
+      "destination": "/offplan.html"
+    },
+    {
+      "source": "/offplan-detail",
+      "destination": "/offplan-detail.html"
+    },
+    {
+      "source": "/calculator",
+      "destination": "/calculator.html"
+    },
+    {
+      "source": "/sell",
+      "destination": "/sell.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    }
+  ]
+}
