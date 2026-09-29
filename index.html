@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emmanuel Real Estate | Luxury Ready & Off-Plan Homes in Dubai</title>
+  <meta name="description" content="Emmanuel Real Estate presents an exclusive portfolio of prime ready homes and architectural off-plan investments across Dubai's most prestigious communities. Prices in AED.">
+
+  <!-- Google Fonts: Cormorant Garamond (Thin & Elegant Headings) & Inter (Body & Buttons) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar: Transparent on Hero, turns White on Scroll with Charcoal Logo -->
+  <header id="main-header" class="site-header">
+    <div class="header-inner container">
+      <!-- Logo Component -->
+      <a href="./" class="brand-logo" aria-label="Emmanuel Real Estate">
+        <div class="logo-text">
+          <span class="logo-title">Emman</span>
+          <span class="logo-divider"></span>
+          <span class="logo-subtitle">REAL ESTATE</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="./properties.html" class="nav-link">Properties</a></li>
+          <li><a href="./offplan.html" class="nav-link">Off-Plan</a></li>
+          <li><a href="./calculator.html" class="nav-link">Mortgage Calculator</a></li>
+          <li><a href="./sell.html" class="nav-link">Sell</a></li>
+          <li><a href="./about.html" class="nav-link">About</a></li>
+          <li><a href="./contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Action -->
+      <div class="header-action">
+        <button type="button" class="btn btn-outline btn-register-trigger" data-modal="register-modal">
+          Register Interest
+        </button>
+        <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <span class="toggle-bar"></span>
+          <span class="toggle-bar"></span>
+          <span class="toggle-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Full-Screen Mobile Drawer Menu -->
+  <div class="mobile-menu-overlay" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-header">
+      <div class="brand-logo logo-white">
+        <div class="logo-text">
+          <span class="logo-title text-white">Emman</span>
+          <span class="logo-divider"></span>
+          <span class="logo-subtitle text-white">REAL ESTATE</span>
+        </div>
+      </div>
+      <button type="button" class="mobile-close" id="mobile-close" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="mobile-menu-content">
+      <nav class="mobile-nav">
+        <ul>
+          <li><a href="./properties.html" class="mobile-link">Properties</a></li>
+          <li><a href="./offplan.html" class="mobile-link">Off-Plan</a></li>
+          <li><a href="./calculator.html" class="mobile-link">Mortgage Calculator</a></li>
+          <li><a href="./sell.html" class="mobile-link">Sell</a></li>
+          <li><a href="./about.html" class="mobile-link">About</a></li>
+          <li><a href="./contact.html" class="mobile-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="mobile-menu-footer">
+        <button type="button" class="btn btn-outline-white w-full btn-register-trigger" data-modal="register-modal">
+          Register Interest
+        </button>
+        <p class="mobile-contact-note">DIFC Gate Precinct • Dubai, UAE</p>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO SECTION: Full-Screen Dubai Skyline with Dark Fade -->
+    <section class="hero-section" id="hero">
+      <div class="hero-bg-media">
+        <img 
+          src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=2400&q=85" 
+          alt="Dubai Skyline Luxury Panoramic View" 
+          class="hero-img"
+          loading="eager"
+          fetchpriority="high"
+        >
+        <div class="hero-fade-overlay"></div>
+      </div>
+
+      <div class="hero-content container">
+        <div class="hero-badge">
+          <span class="gold-badge-label">CURATED DUBAI PORTFOLIO</span>
+        </div>
+        <h1 class="hero-title">Live Where Luxury Meets the Skyline</h1>
+        <p class="hero-subtitle">
+          Exclusive homes and off-plan investments across Dubai's most sought-after communities
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="./properties.html" class="btn btn-hero-primary">Explore Properties</a>
+          <button type="button" class="btn btn-hero-secondary btn-register-trigger" data-modal="register-modal">
+            Register Interest
+          </button>
+        </div>
+      </div>
+
+      <!-- Bottom statistics & scroll mouse indicator -->
+      <div class="hero-bottom-bar container">
+        <div class="hero-stat-item">
+          <span class="stat-num">AED 1.8B+</span>
+          <span class="stat-caption">Prime Transactions Closed</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat-item">
+          <span class="stat-num">100%</span>
+          <span class="stat-caption">Confidential Client Advisory</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat-item">
+          <span class="stat-num">0%</span>
+          <span class="stat-caption">UAE Personal Income Tax</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEARCH & FILTER BAR -->
+    <section class="search-filter-section">
+      <div class="container">
+        <div class="filter-card">
+          <form id="hero-search-form" class="filter-row" onsubmit="return false;">
+            <div class="filter-col">
+              <label class="filter-label" for="search-community">COMMUNITY</label>
+              <select id="search-community" class="filter-select">
+                <option value="all">All Prime Communities</option>
+                <option value="palm-jumeirah">Palm Jumeirah</option>
+                <option value="downtown">Downtown</option>
+                <option value="dubai-marina">Dubai Marina</option>
+                <option value="business-bay">Business Bay</option>
+                <option value="dubai-hills">Dubai Hills</option>
+                <option value="jvc">JVC</option>
+              </select>
+            </div>
+            <div class="filter-divider"></div>
+            <div class="filter-col">
+              <label class="filter-label" for="search-type">PORTFOLIO</label>
+              <select id="search-type" class="filter-select">
+                <option value="all">Ready Homes & Off-Plan</option>
+                <option value="villa">Private Villas</option>
+                <option value="penthouse">Sky Penthouses</option>
+                <option value="apartment">Designer Apartments</option>
+                <option value="offplan">Off-Plan Projects</option>
+              </select>
+            </div>
+            <div class="filter-divider"></div>
+            <div class="filter-col">
+              <label class="filter-label" for="search-price">MAX BUDGET (AED)</label>
+              <select id="search-price" class="filter-select">
+                <option value="all">All Price Brackets</option>
+                <option value="5000000">Up to AED 5M</option>
+                <option value="15000000">Up to AED 15M</option>
+                <option value="35000000">Up to AED 35M</option>
+                <option value="70000000">Above AED 35M (Trophy)</option>
+              </select>
+            </div>
+            <div class="filter-action">
+              <button type="button" id="btn-hero-search" class="btn btn-solid-charcoal w-full">
+                Search Properties
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: FEATURED READY RESIDENCES -->
+    <section class="section section-properties" id="featured-properties">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-gold-label">DISCOVER</span>
+          <h2 class="section-title">Featured Ready Residences</h2>
+          <div class="section-title-divider"></div>
+          <p class="section-desc">
+            Immediate occupancy estates, private beachfront villas, and crown sky penthouses across Dubai's top luxury postcodes.
+          </p>
+        </div>
+
+        <div class="properties-grid" id="home-featured-grid">
+          <!-- Dynamically populated from /api/properties -->
+        </div>
+
+        <div class="section-cta-center">
+          <a href="./properties.html" class="btn btn-outline-charcoal">
+            View All 15 Curated Residences &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: FEATURED OFF-PLAN PROJECTS -->
+    <section class="section section-offplan bg-offwhite" id="featured-offplan">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-gold-label">OFF-PLAN PROJECTS</span>
+          <h2 class="section-title">Architectural Landmarks In Progress</h2>
+          <div class="section-title-divider"></div>
+          <p class="section-desc">
+            Prime investment allocations at launch pricing with structured developer payment schedules and superior capital yields.
+          </p>
+        </div>
+
+        <div class="offplan-grid" id="home-offplan-grid">
+          <!-- Dynamically populated from /api/offplan -->
+        </div>
+
+        <div class="section-cta-center">
+          <a href="./offplan.html" class="btn btn-outline-charcoal">
+            Explore All 6 Off-Plan Developments &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: WHY INVEST IN DUBAI (TAX-FREE, RENTAL INCOME, GOLDEN VISA) -->
+    <section class="section section-why-invest" id="why-invest">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-gold-label">INVESTMENT THESIS</span>
+          <h2 class="section-title">Why Invest in Dubai Real Estate</h2>
+          <div class="section-title-divider center-divider"></div>
+          <p class="section-desc mx-auto">
+            Dubai stands as the preeminent global hub for wealth capital preservation, lifestyle security, and market-leading returns.
+          </p>
+        </div>
+
+        <div class="why-invest-grid">
+          <div class="why-invest-card">
+            <span class="invest-metric-highlight">0%</span>
+            <div class="invest-card-gold-line"></div>
+            <h3 class="invest-card-title">Tax-Free Returns</h3>
+            <p class="invest-card-text">
+              Zero personal income tax, zero capital gains tax, zero inheritance tax, and zero property tax. Keep 100% of your rental yields and asset appreciation.
+            </p>
+          </div>
+
+          <div class="why-invest-card">
+            <span class="invest-metric-highlight">7-9%</span>
+            <div class="invest-card-gold-line"></div>
+            <h3 class="invest-card-title">High Rental Income</h3>
+            <p class="invest-card-text">
+              Dubai delivers net rental yields consistently averaging between 7% and 9% per annum — outperforming London, New York, Singapore, and Paris by more than double.
+            </p>
+          </div>
+
+          <div class="why-invest-card">
+            <span class="invest-metric-highlight">10-YR</span>
+            <div class="invest-card-gold-line"></div>
+            <h3 class="invest-card-title">UAE Golden Visa</h3>
+            <p class="invest-card-text">
+              Property purchases from AED 2,000,000 grant renewable 10-Year UAE residency for you and your family, with 100% foreign business ownership and zero minimum stay requirements.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: POPULAR COMMUNITIES -->
+    <section class="section section-communities bg-offwhite" id="communities">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-gold-label">PRIME ENCLAVES</span>
+          <h2 class="section-title">Popular Dubai Communities</h2>
+          <div class="section-title-divider"></div>
+          <p class="section-desc">
+            Explore world-renowned waterfronts, downtown skylines, and green fairway enclaves.
+          </p>
+        </div>
+
+        <div class="communities-grid">
+          <a href="./properties.html?community=palm-jumeirah" class="community-card">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Palm Jumeirah">
+            <div class="community-overlay">
+              <h3 class="community-title">Palm Jumeirah</h3>
+              <span class="community-sub">Waterfront & Frond Mansions</span>
+            </div>
+          </a>
+
+          <a href="./properties.html?community=downtown" class="community-card">
+            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80" alt="Downtown Dubai">
+            <div class="community-overlay">
+              <h3 class="community-title">Downtown</h3>
+              <span class="community-sub">Burj Khalifa & Crown Penthouses</span>
+            </div>
+          </a>
+
+          <a href="./properties.html?community=dubai-marina" class="community-card">
+            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" alt="Dubai Marina">
+            <div class="community-overlay">
+              <h3 class="community-title">Dubai Marina</h3>
+              <span class="community-sub">Yacht Basins & Sky Mansions</span>
+            </div>
+          </a>
+
+          <a href="./properties.html?community=business-bay" class="community-card">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Business Bay">
+            <div class="community-overlay">
+              <h3 class="community-title">Business Bay</h3>
+              <span class="community-sub">Dubai Canal Waterfront Living</span>
+            </div>
+          </a>
+
+          <a href="./properties.html?community=dubai-hills" class="community-card">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Dubai Hills">
+            <div class="community-overlay">
+              <h3 class="community-title">Dubai Hills</h3>
+              <span class="community-sub">Championship Fairways & Park Estates</span>
+            </div>
+          </a>
+
+          <a href="./properties.html?community=jvc" class="community-card">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="JVC">
+            <div class="community-overlay">
+              <h3 class="community-title">JVC</h3>
+              <span class="community-sub">High Yield Boutique Residences</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: REGISTER INTEREST FORM -->
+    <section class="section section-register" id="register-interest">
+      <div class="container">
+        <div class="calc-wrapper" style="max-width: 900px; margin: 0 auto; display: block;">
+          <div class="section-header text-center" style="margin-bottom: 2.5rem;">
+            <span class="section-gold-label">CONFIDENTIAL ADVISORY</span>
+            <h2 class="section-title">Register Your Interest</h2>
+            <div class="section-title-divider center-divider"></div>
+            <p class="section-desc mx-auto">
+              Connect directly with a Senior Advisory Partner at Emmanuel Real Estate. Receive private off-market catalogs and priority developer release allocations.
+            </p>
+          </div>
+
+          <form id="home-register-form" class="luxury-form" onsubmit="return false;">
+            <!-- Spam honeypot field -->
+            <input type="text" name="honeypot" class="field-honeypot" tabindex="-1" autocomplete="off">
+            <input type="hidden" name="source" value="Home Page Register Form">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="hr-name">YOUR FULL NAME</label>
+                <input type="text" id="hr-name" name="name" class="form-input" placeholder="e.g. Lord Alexander Wright" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="hr-phone">PHONE / WHATSAPP</label>
+                <input type="tel" id="hr-phone" name="phone" class="form-input" placeholder="+971 50 123 4567" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="hr-community">COMMUNITY OF INTEREST</label>
+                <select id="hr-community" name="preferred_community" class="form-input">
+                  <option value="Palm Jumeirah">Palm Jumeirah</option>
+                  <option value="Downtown">Downtown</option>
+                  <option value="Dubai Marina">Dubai Marina</option>
+                  <option value="Business Bay">Business Bay</option>
+                  <option value="Dubai Hills">Dubai Hills</option>
+                  <option value="JVC">JVC</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="hr-budget">TARGET BUDGET (AED)</label>
+                <select id="hr-budget" name="budget_aed" class="form-input">
+                  <option value="5000000">AED 3M – 5M</option>
+                  <option value="15000000">AED 5M – 15M</option>
+                  <option value="35000000" selected>AED 15M – 35M</option>
+                  <option value="70000000">Above AED 35M (Trophy Estates)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="hr-message">SPECIFIC ARCHITECTURAL REQUIREMENTS</label>
+              <textarea id="hr-message" name="message" class="form-input form-textarea" rows="3" placeholder="e.g. Waterfront private berth, sunset view frond, minimum 5 bedroom suites..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-solid-charcoal w-full" style="padding: 1.1rem;">
+              Confirm Private Registration
+            </button>
+            <p class="modal-footnote">Strict client confidentiality maintained. Zero unsolicited communications.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SIMPLE DARK FOOTER WITH THE LOGO -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="./" class="brand-logo logo-white" aria-label="Emmanuel Real Estate">
+            <div class="logo-text">
+              <span class="logo-title text-white">Emman</span>
+              <span class="logo-divider"></span>
+              <span class="logo-subtitle text-white">REAL ESTATE</span>
+            </div>
+          </a>
+          <p class="footer-mission">
+            Purveyors of architectural distinction across Dubai. Curating extraordinary residences for the world's most discerning collectors.
+          </p>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5 class="footer-heading">RESIDENCES</h5>
+          <ul class="footer-links">
+            <li><a href="./properties.html?community=palm-jumeirah">Palm Jumeirah Villas</a></li>
+            <li><a href="./properties.html?community=downtown">Downtown Penthouses</a></li>
+            <li><a href="./properties.html?community=dubai-marina">Dubai Marina Waterfront</a></li>
+            <li><a href="./properties.html?community=dubai-hills">Dubai Hills Fairways</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5 class="footer-heading">NAVIGATION</h5>
+          <ul class="footer-links">
+            <li><a href="./properties.html">Ready Properties</a></li>
+            <li><a href="./offplan.html">Off-Plan Projects</a></li>
+            <li><a href="./calculator.html">Mortgage Calculator</a></li>
+            <li><a href="./sell.html">Sell Your Property</a></li>
+            <li><a href="./about.html">About Emmanuel</a></li>
+            <li><a href="./contact.html">Contact DIFC Office</a></li>
+            <li><a href="./admin-login.html" style="color: var(--color-gold);">Executive CRM Portal 🔒</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5 class="footer-heading">DUBAI HEADQUARTERS</h5>
+          <address class="footer-address">
+            Gate Precinct 4, Level 42<br>
+            Dubai International Financial Centre (DIFC)<br>
+            Dubai, United Arab Emirates<br>
+            <span class="footer-contact-item">Tel: +971 4 820 9000</span>
+          </address>
+        </div>
+      </div>
+
+      <div class="footer-gold-separator"></div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          &copy; <span id="current-year">2026</span> Emmanuel Real Estate. All rights reserved. Prices indicated in UAE Dirhams (AED).
+        </p>
+        <div class="footer-legal-links">
+          <span>Confidentiality Protocol</span>
+          <span>•</span>
+          <span>Terms of Representation</span>
+          <span>•</span>
+          <span>DIFC Private Advisory</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- REGISTER INTEREST MODAL -->
+  <div class="modal-backdrop" id="register-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-dialog">
+      <button type="button" class="modal-close" data-close-modal aria-label="Close dialog">&times;</button>
+      <div class="modal-header">
+        <span class="section-gold-label">CONFIDENTIAL INQUIRY</span>
+        <h3 class="modal-title">Register Your Interest</h3>
+        <div class="section-title-divider"></div>
+        <p class="modal-subtitle">
+          Connect directly with a Senior Partner at Emmanuel Real Estate for private viewings and off-market project allocations.
+        </p>
+      </div>
+
+      <form id="register-form" class="modal-form" onsubmit="return false;">
+        <input type="text" name="honeypot" class="field-honeypot" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="source" value="Header Register Interest Button">
+
+        <div class="form-group">
+          <label class="form-label" for="reg-name">YOUR FULL NAME</label>
+          <input type="text" id="reg-name" name="name" class="form-input" placeholder="e.g. Elena Rostova" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="reg-phone">MOBILE / WHATSAPP</label>
+            <input type="tel" id="reg-phone" name="phone" class="form-input" placeholder="+971 50 123 4567" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-pref">PROPERTY / AREA</label>
+            <input type="text" id="reg-pref" name="preferred_community" class="form-input" placeholder="e.g. Palm Jumeirah Penthouse">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-budget">TARGET BUDGET (AED)</label>
+          <select id="reg-budget" name="budget_aed" class="form-input">
+            <option value="15000000">AED 10M – 20M</option>
+            <option value="30000000" selected>AED 20M – 35M</option>
+            <option value="50000000">AED 35M – 60M</option>
+            <option value="80000000">Above AED 60M (Trophy Estates)</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-solid-charcoal w-full">
+          Confirm Private Registration
+        </button>
+        <p class="modal-footnote">Strict client privacy and non-disclosure standards apply.</p>
+      </form>
+    </div>
+  </div>
+
+  <script src="./common.js"></script>
+  <script>
+    // Home Page specific data fetching
+    document.addEventListener('DOMContentLoaded', async () => {
+      // 1. Fetch Featured Properties
+      try {
+        const res = await fetch('/api/properties');
+        const properties = await res.json();
+        const featGrid = document.getElementById('home-featured-grid');
+        if (featGrid) {
+          // Take first 6 properties
+          const featured = properties.slice(0, 6);
+          featGrid.innerHTML = featured.map(item => `
+            <a href="./property-detail.html?id=${item.id}" class="property-card" style="text-decoration:none;">
+              <div class="property-media">
+                <img src="${item.image}" alt="${item.title}" class="property-img" loading="lazy">
+                <span class="property-tag-badge">${item.tag || item.type}</span>
+              </div>
+              <div class="property-details">
+                <div class="property-gold-line"></div>
+                <h3 class="property-name">${item.title}</h3>
+                <div class="property-meta-row">
+                  <span class="property-area-name">${item.community}</span>
+                  <span class="property-price">From ${formatAED(item.price_aed)}</span>
+                </div>
+                <div class="property-specs">
+                  <span>${item.bedrooms} Beds</span>
+                  <span>•</span>
+                  <span>${item.bathrooms} Baths</span>
+                  <span>•</span>
+                  <span>${item.built_up_sqft.toLocaleString()} Sq.Ft</span>
+                </div>
+              </div>
+            </a>
+          `).join('');
+        }
+      } catch (e) {
+        console.error('Error fetching featured properties:', e);
+      }
+
+      // 2. Fetch Featured Off-Plan Projects
+      try {
+        const res = await fetch('/api/offplan');
+        const offplan = await res.json();
+        const offGrid = document.getElementById('home-offplan-grid');
+        if (offGrid) {
+          // Take first 3 off-plan projects
+          const featured = offplan.slice(0, 3);
+          offGrid.innerHTML = featured.map(item => `
+            <a href="./offplan-detail.html?id=${item.id}" class="offplan-card" style="text-decoration:none;">
+              <div class="offplan-media">
+                <img src="${item.image}" alt="${item.title}" class="offplan-img" loading="lazy">
+                <div class="offplan-badges">
+                  <span class="offplan-status">HANDOVER: ${item.handover_date}</span>
+                  <span class="offplan-plan-badge">${item.payment_plan.split('(')[0]}</span>
+                </div>
+              </div>
+              <div class="offplan-details">
+                <div class="property-gold-line"></div>
+                <h3 class="offplan-name">${item.title}</h3>
+                <div class="offplan-meta-row">
+                  <span class="property-area-name">${item.community}</span>
+                  <span class="property-price">From ${formatAED(item.starting_price_aed)}</span>
+                </div>
+                <div class="offplan-highlights">
+                  <div class="highlight-box">
+                    <span class="highlight-label">DEVELOPER</span>
+                    <span class="highlight-val" style="font-size:0.9rem;">${item.developer_name}</span>
+                  </div>
+                  <div class="highlight-box">
+                    <span class="highlight-label">PROJECTED ROI</span>
+                    <span class="highlight-val" style="color:var(--color-gold); font-size:0.9rem;">${item.est_roi}</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          `).join('');
+        }
+      } catch (e) {
+        console.error('Error fetching offplan:', e);
+      }
+
+      // Hero search button
+      const searchBtn = document.getElementById('btn-hero-search');
+      if (searchBtn) {
+        searchBtn.addEventListener('click', () => {
+          const comm = document.getElementById('search-community').value;
+          const type = document.getElementById('search-type').value;
+          const price = document.getElementById('search-price').value;
+
+          if (type === 'offplan') {
+            window.location.href = `./offplan.html?community=${comm}`;
+          } else {
+            window.location.href = `./properties.html?community=${comm}&type=${type}&max_price=${price}`;
+          }
+        });
+      }
+
+      // Home register form submit
+      const homeRegForm = document.getElementById('home-register-form');
+      if (homeRegForm) {
+        homeRegForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          submitFormWithSpamCheck(homeRegForm, '/api/leads');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

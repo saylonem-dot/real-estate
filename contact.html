@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Private Office | Emmanuel Real Estate Dubai</title>
+  <meta name="description" content="Connect with Emmanuel Real Estate Private Client Office in DIFC Gate Precinct, Dubai. Direct VIP concierge, confidential salon appointments, and advisory.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="main-header" class="site-header solid-header">
+    <div class="header-inner container">
+      <a href="./" class="brand-logo logo-charcoal" aria-label="Emmanuel Real Estate">
+        <div class="logo-text">
+          <span class="logo-title">Emman</span>
+          <span class="logo-divider"></span>
+          <span class="logo-subtitle">REAL ESTATE</span>
+        </div>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="./properties.html" class="nav-link">Properties</a></li>
+          <li><a href="./offplan.html" class="nav-link">Off-Plan</a></li>
+          <li><a href="./calculator.html" class="nav-link">Mortgage Calculator</a></li>
+          <li><a href="./sell.html" class="nav-link">Sell</a></li>
+          <li><a href="./about.html" class="nav-link">About</a></li>
+          <li><a href="./contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-action">
+        <button type="button" class="btn btn-outline btn-register-trigger" data-modal="register-modal">
+          Register Interest
+        </button>
+        <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+          <span class="toggle-bar"></span>
+          <span class="toggle-bar"></span>
+          <span class="toggle-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-menu-overlay" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-header">
+      <div class="brand-logo logo-white">
+        <div class="logo-text">
+          <span class="logo-title text-white">Emman</span>
+          <span class="logo-divider"></span>
+          <span class="logo-subtitle text-white">REAL ESTATE</span>
+        </div>
+      </div>
+      <button type="button" class="mobile-close" id="mobile-close">&times;</button>
+    </div>
+    <div class="mobile-menu-content">
+      <nav class="mobile-nav">
+        <ul>
+          <li><a href="./properties.html" class="mobile-link">Properties</a></li>
+          <li><a href="./offplan.html" class="mobile-link">Off-Plan</a></li>
+          <li><a href="./calculator.html" class="mobile-link">Mortgage Calculator</a></li>
+          <li><a href="./sell.html" class="mobile-link">Sell</a></li>
+          <li><a href="./about.html" class="mobile-link">About</a></li>
+          <li><a href="./contact.html" class="mobile-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <main>
+    <!-- PAGE BANNER -->
+    <section class="page-banner">
+      <div class="container">
+        <span class="section-gold-label">DIFC HEADQUARTERS</span>
+        <h1 class="page-banner-title">Private Office Consultation</h1>
+        <p class="page-banner-sub">
+          Schedule a discrete meeting at our private suite in Gate Precinct, DIFC, or request a confidential conference with an Emmanuel advisory partner.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT CARDS & INQUIRY FORM -->
+    <section class="section" style="padding-top: 4rem;">
+      <div class="container">
+        <div class="contact-details-grid" style="margin-top: 0; margin-bottom: 4.5rem;">
+          <div class="contact-card">
+            <span class="contact-card-label">DIRECT VIP TELEPHONE</span>
+            <h3 class="contact-card-title">+971 4 820 9000</h3>
+            <p class="contact-card-desc">Dedicated direct line for high-net-worth investors, family offices, and sovereign funds.</p>
+            <span class="contact-gold-badge">AVAILABLE 24/7</span>
+          </div>
+
+          <div class="contact-card">
+            <span class="contact-card-label">SANCTUARY SUITE</span>
+            <h3 class="contact-card-title">DIFC Gate Precinct</h3>
+            <p class="contact-card-desc">Level 42, Executive Tower 4, Dubai International Financial Centre, Dubai, UAE.</p>
+            <span class="contact-gold-badge">BY APPOINTMENT ONLY</span>
+          </div>
+
+          <div class="contact-card">
+            <span class="contact-card-label">DIRECT WHATSAPP DESK</span>
+            <h3 class="contact-card-title">+971 50 123 4567</h3>
+            <p class="contact-card-desc">Instant encrypted concierge chat for off-market listings, viewing bookings, and video salon tours.</p>
+            <span class="contact-gold-badge">ENCRYPTED & PRIVATE</span>
+          </div>
+        </div>
+
+        <!-- Consultation Booking Form -->
+        <div style="max-width: 860px; margin: 0 auto; background-color: var(--color-white); border: 1px solid var(--color-border); padding: 3.5rem; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);">
+          <div class="section-header text-center" style="margin-bottom: 2.5rem;">
+            <span class="section-gold-label">PRIVATE SALON RESERVATION</span>
+            <h2 class="section-title">Schedule An Exclusive Appointment</h2>
+            <div class="section-title-divider center-divider"></div>
+            <p class="section-desc mx-auto">
+              Please indicate your preferred date and time. Our concierge will confirm your entry credentials and valet parking reservation at DIFC.
+            </p>
+          </div>
+
+          <form id="contact-page-form" class="luxury-form" onsubmit="return false;">
+            <!-- Spam honeypot field -->
+            <input type="text" name="honeypot" class="field-honeypot" tabindex="-1" autocomplete="off">
+            <input type="hidden" name="source" value="Contact Page Appointment Form">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="cp-name">YOUR FULL NAME</label>
+                <input type="text" name="name" id="cp-name" class="form-input" placeholder="e.g. Lord Alexander Wright" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cp-phone">PHONE / WHATSAPP</label>
+                <input type="tel" name="phone" id="cp-phone" class="form-input" placeholder="+971 50 000 0000" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="cp-email">EMAIL ADDRESS</label>
+                <input type="email" name="email" id="cp-email" class="form-input" placeholder="alexander@domain.com">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cp-consult">MEETING FORMAT</label>
+                <select name="meeting_format" id="cp-consult" class="form-input">
+                  <option>In-Person at DIFC Private Suite</option>
+                  <option>On-Site Property Inspection</option>
+                  <option>Encrypted Video Conference</option>
+                  <option>Private Residence / Hotel Visit</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="cp-date">PREFERRED DATE</label>
+                <input type="date" name="preferred_date" id="cp-date" class="form-input">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cp-time">PREFERRED TIME</label>
+                <select name="preferred_time" id="cp-time" class="form-input">
+                  <option>Morning (10:00 AM)</option>
+                  <option>Midday (12:30 PM)</option>
+                  <option>Afternoon (03:00 PM)</option>
+                  <option>Late Afternoon (05:30 PM)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cp-notes">TOPICS OF ADVISORY</label>
+              <textarea name="message" id="cp-notes" class="form-input form-textarea" rows="3" placeholder="e.g. Seeking off-market Palm Jumeirah acquisition, Golden Visa conveyancing, or portfolio liquidation..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-solid-charcoal w-full">
+              Confirm Private Appointment Request
+            </button>
+            <p class="modal-footnote">All conversations and dossiers are protected under strict international privacy agreements.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SIMPLE DARK FOOTER WITH THE LOGO -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="./" class="brand-logo logo-white" aria-label="Emmanuel Real Estate">
+            <div class="logo-text">
+              <span class="logo-title text-white">Emman</span>
+              <span class="logo-divider"></span>
+              <span class="logo-subtitle text-white">REAL ESTATE</span>
+            </div>
+          </a>
+          <p class="footer-mission">
+            Purveyors of architectural distinction across Dubai. Curating extraordinary residences for the world's most discerning collectors.
+          </p>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5 class="footer-heading">RESIDENCES</h5>
+          <ul class="footer-links">
+            <li><a href="./properties.html?community=palm-jumeirah">Palm Jumeirah Villas</a></li>
+            <li><a href="./properties.html?community=downtown">Downtown Penthouses</a></li>
+            <li><a href="./properties.html?community=dubai-marina">Dubai Marina Waterfront</a></li>
+            <li><a href="./properties.html?community=dubai-hills">Dubai Hills Estates</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5 class="footer-heading">NAVIGATION</h5>
+          <ul class="footer-links">
+            <li><a href="./properties.html">Ready Properties</a></li>
+            <li><a href="./offplan.html">Off-Plan Projects</a></li>
+            <li><a href="./calculator.html">Mortgage Calculator</a></li>
+            <li><a href="./sell.html">Sell Your Property</a></li>
+            <li><a href="./about.html">About Emmanuel</a></li>
+            <li><a href="./contact.html">Contact DIFC Office</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5 class="footer-heading">DUBAI HEADQUARTERS</h5>
+          <address class="footer-address">
+            Gate Precinct 4, Level 42<br>
+            Dubai International Financial Centre (DIFC)<br>
+            Dubai, United Arab Emirates<br>
+            <span class="footer-contact-item">Tel: +971 4 820 9000</span>
+          </address>
+        </div>
+      </div>
+
+      <div class="footer-gold-separator"></div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          &copy; <span id="current-year">2026</span> Emmanuel Real Estate. All rights reserved. Prices indicated in UAE Dirhams (AED).
+        </p>
+        <div class="footer-legal-links">
+          <span>Confidentiality Protocol</span>
+          <span>•</span>
+          <span>Terms of Representation</span>
+          <span>•</span>
+          <span>DIFC Private Advisory</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./common.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const contactForm = document.getElementById('contact-page-form');
+      if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          submitFormWithSpamCheck(contactForm, '/api/leads');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

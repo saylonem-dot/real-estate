@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Executive CRM Portal | Emmanuel Real Estate Dubai</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css">
+
+  <style>
+    /* Executive Dark / Charcoal CRM Aesthetic */
+    :root {
+      --admin-bg: #141414;
+      --admin-card-bg: #1F1F1F;
+      --admin-card-hover: #262626;
+      --admin-border: rgba(255, 255, 255, 0.08);
+      --admin-gold: #B8975A;
+      --admin-gold-hover: #C8A86B;
+      --admin-text-main: #F3F4F6;
+      --admin-text-muted: #9CA3AF;
+      --admin-hot: #EF4444;
+      --admin-warm: #F59E0B;
+      --admin-cold: #3B82F6;
+    }
+
+    body {
+      background-color: var(--admin-bg);
+      color: var(--admin-text-main);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Executive Bar */
+    .admin-header {
+      background: #1A1A1A;
+      border-bottom: 1px solid var(--admin-border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .admin-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 2rem;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .admin-brand {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .admin-badge {
+      display: inline-block;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      padding: 0.25rem 0.6rem;
+      border: 1px solid var(--admin-gold);
+      color: var(--admin-gold);
+    }
+
+    .admin-nav {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .admin-nav-btn {
+      background: transparent;
+      border: none;
+      color: var(--admin-text-muted);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 0.6rem 1rem;
+      cursor: pointer;
+      position: relative;
+      transition: var(--transition-smooth);
+    }
+
+    .admin-nav-btn:hover {
+      color: #FFFFFF;
+    }
+
+    .admin-nav-btn.active {
+      color: var(--admin-gold);
+      font-weight: 500;
+    }
+
+    .admin-nav-btn.active::after {
+      content: "";
+      position: absolute;
+      bottom: -0.85rem;
+      left: 1rem;
+      right: 1rem;
+      height: 2px;
+      background: var(--admin-gold);
+    }
+
+    .admin-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    /* Notification Bell with Unread Badge & Dropdown */
+    .notification-wrapper {
+      position: relative;
+    }
+
+    .bell-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #FFFFFF;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      transition: var(--transition-smooth);
+    }
+
+    .bell-btn:hover {
+      background: rgba(184, 151, 90, 0.15);
+      border-color: var(--admin-gold);
+    }
+
+    .bell-count {
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      background: #EF4444;
+      color: #FFFFFF;
+      font-size: 0.65rem;
+      font-weight: 700;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #1A1A1A;
+      box-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
+      transition: transform 0.3s ease;
+    }
+
+    .bell-count.pulse {
+      animation: pulseAnimation 1.5s infinite;
+    }
+
+    @keyframes pulseAnimation {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    .notification-dropdown {
+      position: absolute;
+      top: 50px;
+      right: 0;
+      width: 320px;
+      background: #1F1F1F;
+      border: 1px solid rgba(184, 151, 90, 0.3);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+      display: none;
+      z-index: 1050;
+    }
+
+    .notification-dropdown.show {
+      display: block;
+    }
+
+    .notification-header {
+      padding: 0.9rem 1.1rem;
+      border-bottom: 1px solid var(--admin-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--admin-gold);
+    }
+
+    .notification-list {
+      max-height: 320px;
+      overflow-y: auto;
+    }
+
+    .notification-item {
+      padding: 0.85rem 1.1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .notification-item:hover {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .notification-item-title {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: #FFFFFF;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .notification-item-meta {
+      font-size: 0.7rem;
+      color: var(--admin-text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .user-profile {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding-left: 0.5rem;
+      border-left: 1px solid var(--admin-border);
+    }
+
+    .user-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--admin-gold);
+      color: #1A1A1A;
+      font-weight: 600;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .user-info {
+      line-height: 1.2;
+    }
+
+    .user-name {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #FFFFFF;
+    }
+
+    .user-role-title {
+      font-size: 0.65rem;
+      color: var(--admin-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .btn-header-sm {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 0.45rem 0.85rem;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--admin-text-muted);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-header-sm:hover {
+      border-color: #FFFFFF;
+      color: #FFFFFF;
+    }
+
+    /* Main Container */
+    .admin-main {
+      flex: 1;
+      max-width: 1600px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Tabs Content Container */
+    .tab-pane {
+      display: none;
+    }
+
+    .tab-pane.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Dashboard Metrics Cards */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .metric-card {
+      background: var(--admin-card-bg);
+      border: 1px solid var(--admin-border);
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+
+    .metric-card:hover {
+      border-color: rgba(184, 151, 90, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .metric-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--admin-gold);
+    }
+
+    .metric-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--admin-text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .metric-value {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: #FFFFFF;
+      line-height: 1.1;
+      margin-bottom: 0.25rem;
+    }
+
+    .metric-sub {
+      font-size: 0.72rem;
+      color: var(--admin-gold);
+    }
+
+    /* Visual Charts Section */
+    .charts-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 1024px) {
+      .charts-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .chart-card {
+      background: var(--admin-card-bg);
+      border: 1px solid var(--admin-border);
+      padding: 1.75rem;
+    }
+
+    .chart-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--admin-gold);
+      margin-bottom: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Stage Bar Visualization */
+    .stage-bar-item {
+      margin-bottom: 1rem;
+    }
+
+    .stage-bar-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      margin-bottom: 0.35rem;
+      color: #D1D5DB;
+    }
+
+    .stage-progress-track {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      position: relative;
+    }
+
+    .stage-progress-fill {
+      height: 100%;
+      background: var(--admin-gold);
+      transition: width 0.6s ease;
+    }
+
+    /* Kanban Board Styles */
+    .kanban-board {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1.25rem;
+      overflow-x: auto;
+      padding-bottom: 1.5rem;
+      min-height: 600px;
+    }
+
+    @media (max-width: 1400px) {
+      .kanban-board {
+        grid-template-columns: repeat(6, 280px);
+      }
+    }
+
+    .kanban-col {
+      background: rgba(25, 25, 25, 0.6);
+      border: 1px solid var(--admin-border);
+      display: flex;
+      flex-direction: column;
+      max-height: 80vh;
+    }
+
+    .kanban-col-header {
+      padding: 1rem 1.2rem;
+      border-bottom: 1px solid var(--admin-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(30, 30, 30, 0.8);
+    }
+
+    .kanban-col-title {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 600;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .kanban-col-count {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.15rem 0.5rem;
+      font-size: 0.65rem;
+      border-radius: 10px;
+      color: var(--admin-gold);
+    }
+
+    .kanban-cards {
+      flex: 1;
+      padding: 1rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      min-height: 200px;
+      transition: background-color 0.2s ease;
+    }
+
+    .kanban-cards.drag-over {
+      background-color: rgba(184, 151, 90, 0.08);
+      border: 1px dashed var(--admin-gold);
+    }
+
+    .kanban-card {
+      background: var(--admin-card-bg);
+      border: 1px solid var(--admin-border);
+      padding: 1rem;
+      cursor: grab;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+    }
+
+    .kanban-card:active {
+      cursor: grabbing;
+    }
+
+    .kanban-card:hover {
+      border-color: rgba(184, 151, 90, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .kanban-card.dragging {
+      opacity: 0.4;
+      transform: scale(0.95);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.6rem;
+    }
+
+    .lead-score-badge {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 0.2rem 0.45rem;
+      text-transform: uppercase;
+      border-radius: 2px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .badge-hot {
+      background: rgba(239, 68, 68, 0.15);
+      color: #F87171;
+      border: 1px solid rgba(239, 68, 68, 0.4);
+    }
+
+    .badge-warm {
+      background: rgba(245, 158, 11, 0.15);
+      color: #FBBF24;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+    }
+
+    .badge-cold {
+      background: rgba(59, 130, 246, 0.15);
+      color: #60A5FA;
+      border: 1px solid rgba(59, 130, 246, 0.4);
+    }
+
+    .card-source-tag {
+      font-size: 0.6rem;
+      color: var(--admin-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 120px;
+    }
+
+    .card-name {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #FFFFFF;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-budget {
+      font-size: 0.78rem;
+      color: var(--admin-gold);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-meta {
+      font-size: 0.68rem;
+      color: var(--admin-text-muted);
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      padding-top: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Leads Table View */
+    .leads-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      background: var(--admin-card-bg);
+      border: 1px solid var(--admin-border);
+      padding: 1.25rem;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .search-input {
+      background: #141414;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+      padding: 0.6rem 1rem;
+      font-size: 0.8rem;
+      min-width: 260px;
+      outline: none;
+    }
+
+    .search-input:focus {
+      border-color: var(--admin-gold);
+    }
+
+    .filter-select {
+      background: #141414;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+      padding: 0.6rem 0.85rem;
+      font-size: 0.78rem;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .btn-export {
+      background: transparent;
+      border: 1px solid var(--admin-gold);
+      color: var(--admin-gold);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 0.65rem 1.25rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-export:hover {
+      background: var(--admin-gold);
+      color: #1A1A1A;
+    }
+
+    .leads-table-container {
+      background: var(--admin-card-bg);
+      border: 1px solid var(--admin-border);
+      overflow-x: auto;
+    }
+
+    .leads-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.82rem;
+    }
+
+    .leads-table th {
+      padding: 1rem 1.25rem;
+      background: rgba(25, 25, 25, 0.95);
+      color: var(--admin-gold);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      border-bottom: 1px solid var(--admin-border);
+      font-weight: 500;
+    }
+
+    .leads-table td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: #D1D5DB;
+    }
+
+    .leads-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .action-link {
+      color: var(--admin-gold);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    .action-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Lead Detail Drawer / Modal */
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(5px);
+      z-index: 2000;
+      display: none;
+      justify-content: flex-end;
+    }
+
+    .drawer-overlay.open {
+      display: flex;
+    }
+
+    .drawer-panel {
+      width: 100%;
+      max-width: 620px;
+      height: 100%;
+      background: #1C1C1C;
+      border-left: 1px solid var(--admin-border);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      animation: slideInRight 0.35s ease;
+    }
+
+    @keyframes slideInRight {
+      from { transform: translateX(100%); }
+      to { transform: translateX(0); }
+    }
+
+    .drawer-header {
+      padding: 1.75rem 2rem;
+      border-bottom: 1px solid var(--admin-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      background: #171717;
+    }
+
+    .drawer-close {
+      background: none;
+      border: none;
+      color: var(--admin-text-muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .drawer-close:hover {
+      color: #FFFFFF;
+    }
+
+    .drawer-content {
+      padding: 2rem;
+      flex: 1;
+    }
+
+    .lead-actions-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn-contact {
+      padding: 0.75rem;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.03);
+      color: #FFFFFF;
+      text-align: center;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-contact.call:hover {
+      border-color: #34D399;
+      color: #34D399;
+      background: rgba(52, 211, 153, 0.1);
+    }
+
+    .btn-contact.wa:hover {
+      border-color: #22C55E;
+      color: #22C55E;
+      background: rgba(34, 197, 94, 0.1);
+    }
+
+    .btn-contact.won {
+      border-color: var(--admin-gold);
+      color: var(--admin-gold);
+      background: rgba(184, 151, 90, 0.1);
+      font-weight: 600;
+    }
+
+    .btn-contact.won:hover {
+      background: var(--admin-gold);
+      color: #1A1A1A;
+    }
+
+    .detail-section {
+      margin-bottom: 2rem;
+    }
+
+    .detail-section-title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--admin-gold);
+      border-bottom: 1px solid var(--admin-border);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem 1.5rem;
+    }
+
+    .detail-item-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--admin-text-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .detail-item-val {
+      font-size: 0.88rem;
+      color: #FFFFFF;
+      font-weight: 400;
+    }
+
+    /* Notes Timeline */
+    .notes-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 1.5rem;
+      max-height: 250px;
+      overflow-y: auto;
+    }
+
+    .note-item {
+      background: rgba(15, 15, 15, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 0.85rem 1rem;
+    }
+
+    .note-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.65rem;
+      color: var(--admin-gold);
+      margin-bottom: 0.35rem;
+    }
+
+    .note-content {
+      font-size: 0.8rem;
+      color: #D1D5DB;
+      line-height: 1.5;
+    }
+
+    .note-form {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .note-form textarea {
+      flex: 1;
+      background: #141414;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+      padding: 0.75rem;
+      font-size: 0.8rem;
+      resize: vertical;
+      min-height: 60px;
+      outline: none;
+    }
+
+    .note-form textarea:focus {
+      border-color: var(--admin-gold);
+    }
+
+    /* Centered Modals (Deal Won, Viewings, Property Edit) */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(6px);
+      z-index: 2500;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-box {
+      width: 100%;
+      max-width: 540px;
+      background: #1F1F1F;
+      border: 1px solid rgba(184, 151, 90, 0.4);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+      padding: 2.5rem;
+      position: relative;
+    }
+
+    .modal-box-title {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      color: #FFFFFF;
+      margin-bottom: 0.25rem;
+    }
+
+    .modal-box-subtitle {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--admin-gold);
+      margin-bottom: 1.75rem;
+    }
+
+    .commission-callout {
+      background: rgba(184, 151, 90, 0.1);
+      border: 1px dashed var(--admin-gold);
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .commission-number {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      color: var(--admin-gold);
+      font-weight: 500;
+    }
+
+    .form-group-modal {
+      margin-bottom: 1.25rem;
+      text-align: left;
+    }
+
+    .form-group-modal label {
+      display: block;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--admin-text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group-modal input, .form-group-modal select, .form-group-modal textarea {
+      width: 100%;
+      background: #141414;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+      padding: 0.8rem 1rem;
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .form-group-modal input:focus, .form-group-modal select:focus, .form-group-modal textarea:focus {
+      border-color: var(--admin-gold);
+    }
+
+    /* Leaderboard Cards */
+    .leaderboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .leaderboard-card {
+      background: var(--admin-card-bg);
+      border: 1px solid var(--admin-border);
+      padding: 1.75rem;
+      position: relative;
+    }
+
+    .leaderboard-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .agent-avatar-img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--admin-gold);
+    }
+
+    /* Stale Leads Table */
+    .stale-badge {
+      background: rgba(239, 68, 68, 0.15);
+      color: #F87171;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    /* Inventory Management */
+    .inventory-nav {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--admin-border);
+      padding-bottom: 0.75rem;
+    }
+
+    .inventory-nav-btn {
+      background: none;
+      border: none;
+      color: var(--admin-text-muted);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      cursor: pointer;
+      padding: 0.5rem 0;
+    }
+
+    .inventory-nav-btn.active {
+      color: var(--admin-gold);
+      border-bottom: 2px solid var(--admin-gold);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Executive Header -->
+  <header class="admin-header">
+    <div class="admin-header-inner">
+      <div class="admin-brand">
+        <a href="./" class="brand-logo logo-white" aria-label="Emmanuel Real Estate">
+          <div class="logo-text">
+            <span class="logo-title" style="font-size: 1.6rem;">Emman</span>
+            <span class="logo-divider" style="background-color: var(--admin-gold);"></span>
+            <span class="logo-subtitle" style="font-size: 0.52rem; color: #D1D5DB;">REAL ESTATE</span>
+          </div>
+        </a>
+        <span class="admin-badge">Executive CRM</span>
+      </div>
+
+      <!-- Tabs Navigation -->
+      <nav class="admin-nav" aria-label="Admin Sections">
+        <button type="button" class="admin-nav-btn active" data-tab="tab-dashboard">Dashboard</button>
+        <button type="button" class="admin-nav-btn" data-tab="tab-kanban">Pipeline Board</button>
+        <button type="button" class="admin-nav-btn" data-tab="tab-leads">Leads Directory</button>
+        <button type="button" class="admin-nav-btn" data-tab="tab-viewings">Viewings</button>
+        <button type="button" class="admin-nav-btn" data-tab="tab-leaderboard">Leaderboard</button>
+        <button type="button" class="admin-nav-btn" data-tab="tab-stale">
+          Stale Leads <span id="stale-tab-count" style="color: #F87171; font-weight: bold;"></span>
+        </button>
+        <button type="button" class="admin-nav-btn" data-tab="tab-inventory" id="nav-inventory">Inventory</button>
+      </nav>
+
+      <!-- Right Header Actions (Bell Notification, User Info, Logout) -->
+      <div class="admin-actions">
+        <!-- Notification Bell (Auto refreshes every 60 seconds) -->
+        <div class="notification-wrapper">
+          <button type="button" class="bell-btn" id="bell-btn" aria-label="New Inquiries">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span class="bell-count" id="bell-count">0</span>
+          </button>
+
+          <!-- Notifications Dropdown -->
+          <div class="notification-dropdown" id="notification-dropdown">
+            <div class="notification-header">
+              <span>New Inbound Leads</span>
+              <span id="notif-sync-time" style="font-size: 0.6rem; color: #9CA3AF;">Auto-Sync: 60s</span>
+            </div>
+            <div class="notification-list" id="notification-list">
+              <!-- Populated by JavaScript -->
+            </div>
+          </div>
+        </div>
+
+        <!-- User Profile Tag -->
+        <div class="user-profile">
+          <div class="user-avatar" id="user-avatar">AD</div>
+          <div class="user-info">
+            <div class="user-name" id="user-display-name">Principal Director</div>
+            <div class="user-role-title" id="user-display-role">Administrator</div>
+          </div>
+        </div>
+
+        <a href="./" target="_blank" class="btn-header-sm" title="Open Public Website">View Site ↗</a>
+        <button type="button" class="btn-header-sm" id="btn-logout">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main CRM Body -->
+  <main class="admin-main">
+
+    <!-- ===================================================================== -->
+    <!-- TAB 1: EXECUTIVE DASHBOARD                                             -->
+    <!-- ===================================================================== -->
+    <section class="tab-pane active" id="tab-dashboard">
+      <!-- KPI Cards -->
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-label">New Leads Today</div>
+          <div class="metric-value" id="kpi-leads-today">0</div>
+          <div class="metric-sub" id="kpi-leads-sub">0 total new leads in queue</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-label">Pipeline Deal Value</div>
+          <div class="metric-value" id="kpi-pipeline-val">AED 0</div>
+          <div class="metric-sub">Active buyer demand</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-label">Viewings Scheduled</div>
+          <div class="metric-value" id="kpi-viewings">0</div>
+          <div class="metric-sub">Private property viewings</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-label">Sales Closed This Month</div>
+          <div class="metric-value" id="kpi-sales-month">AED 0</div>
+          <div class="metric-sub" id="kpi-commission-sub">Agency Commission (2%): AED 0</div>
+        </div>
+      </div>
+
+      <!-- Charts & Visual Summaries -->
+      <div class="charts-grid">
+        <!-- Stage Breakdown Bar -->
+        <div class="chart-card">
+          <div class="chart-title">
+            <span>Pipeline Progression by Stage</span>
+            <span style="color: var(--admin-text-muted); font-size: 0.65rem;">Updated Live</span>
+          </div>
+          <div id="stage-breakdown-bars">
+            <!-- Populated via JavaScript -->
+          </div>
+        </div>
+
+        <!-- Lead Temperature Breakdown -->
+        <div class="chart-card">
+          <div class="chart-title">
+            <span>Lead Quality & Temperature</span>
+            <span style="font-size: 0.65rem; color: var(--admin-text-muted);">Scoring System (0-100)</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 1.25rem; margin-top: 1rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; border-left: 3px solid #EF4444; padding-left: 1rem;">
+              <div>
+                <div style="font-size: 0.85rem; font-weight: 600; color: #FFFFFF;">HOT LEADS (70-100)</div>
+                <div style="font-size: 0.7rem; color: var(--admin-text-muted);">Cash buyers, immediate readiness, high budget</div>
+              </div>
+              <div id="count-hot-leads" style="font-family: var(--font-heading); font-size: 1.8rem; color: #F87171;">0</div>
+            </div>
+
+            <div style="display: flex; align-items: center; justify-content: space-between; border-left: 3px solid #F59E0B; padding-left: 1rem;">
+              <div>
+                <div style="font-size: 0.85rem; font-weight: 600; color: #FFFFFF;">WARM LEADS (45-69)</div>
+                <div style="font-size: 0.7rem; color: var(--admin-text-muted);">Specific property interest, 1-3 month timeframe</div>
+              </div>
+              <div id="count-warm-leads" style="font-family: var(--font-heading); font-size: 1.8rem; color: #FBBF24;">0</div>
+            </div>
+
+            <div style="display: flex; align-items: center; justify-content: space-between; border-left: 3px solid #3B82F6; padding-left: 1rem;">
+              <div>
+                <div style="font-size: 0.85rem; font-weight: 600; color: #FFFFFF;">COLD LEADS (0-44)</div>
+                <div style="font-size: 0.7rem; color: var(--admin-text-muted);">General browsing, mortgage research, extended timeline</div>
+              </div>
+              <div id="count-cold-leads" style="font-family: var(--font-heading); font-size: 1.8rem; color: #60A5FA;">0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- TAB 2: PIPELINE BOARD (KANBAN DRAG & DROP)                             -->
+    <!-- ===================================================================== -->
+    <section class="tab-pane" id="tab-kanban">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+        <div>
+          <h2 style="font-family: var(--font-heading); font-size: 1.6rem; color: #FFFFFF;">Client Acquisition Pipeline</h2>
+          <p style="font-size: 0.75rem; color: var(--admin-text-muted); text-transform: uppercase; letter-spacing: 0.1em;">Drag and drop cards between stages to update deal status</p>
+        </div>
+        <button type="button" class="btn-export" onclick="openNewLeadModal()">+ Register VIP Buyer</button>
+      </div>
+
+      <!-- 6 Kanban Columns -->
+      <div class="kanban-board" id="kanban-board">
+        <!-- New -->
+        <div class="kanban-col" data-stage="New">
+          <div class="kanban-col-header">
+            <span class="kanban-col-title">New Inquiries</span>
+            <span class="kanban-col-count" id="count-stage-New">0</span>
+          </div>
+          <div class="kanban-cards" data-stage="New" id="cards-New"></div>
+        </div>
+
+        <!-- Contacted -->
+        <div class="kanban-col" data-stage="Contacted">
+          <div class="kanban-col-header">
+            <span class="kanban-col-title">Contacted</span>
+            <span class="kanban-col-count" id="count-stage-Contacted">0</span>
+          </div>
+          <div class="kanban-cards" data-stage="Contacted" id="cards-Contacted"></div>
+        </div>
+
+        <!-- Viewing -->
+        <div class="kanban-col" data-stage="Viewing">
+          <div class="kanban-col-header">
+            <span class="kanban-col-title">Private Viewing</span>
+            <span class="kanban-col-count" id="count-stage-Viewing">0</span>
+          </div>
+          <div class="kanban-cards" data-stage="Viewing" id="cards-Viewing"></div>
+        </div>
+
+        <!-- Offer -->
+        <div class="kanban-col" data-stage="Offer">
+          <div class="kanban-col-header">
+            <span class="kanban-col-title">Offer / LOI</span>
+            <span class="kanban-col-count" id="count-stage-Offer">0</span>
+          </div>
+          <div class="kanban-cards" data-stage="Offer" id="cards-Offer"></div>
+        </div>
+
+        <!-- Won -->
+        <div class="kanban-col" data-stage="Won">
+          <div class="kanban-col-header" style="border-top: 2px solid var(--admin-gold);">
+            <span class="kanban-col-title" style="color: var(--admin-gold);">Won (Closed)</span>
+            <span class="kanban-col-count" id="count-stage-Won" style="background: rgba(184, 151, 90, 0.2);">0</span>
+          </div>
+          <div class="kanban-cards" data-stage="Won" id="cards-Won"></div>
+        </div>
+
+        <!-- Lost -->
+        <div class="kanban-col" data-stage="Lost">
+          <div class="kanban-col-header">
+            <span class="kanban-col-title">Archived / Lost</span>
+            <span class="kanban-col-count" id="count-stage-Lost">0</span>
+          </div>
+          <div class="kanban-cards" data-stage="Lost" id="cards-Lost"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- TAB 3: LEADS DIRECTORY & EXCEL EXPORT                                  -->
+    <!-- ===================================================================== -->
+    <section class="tab-pane" id="tab-leads">
+      <div class="leads-controls">
+        <div class="filter-group">
+          <input type="text" id="lead-search" class="search-input" placeholder="Search by buyer name, phone, email, or property...">
+          
+          <select id="filter-stage" class="filter-select">
+            <option value="">All Stages</option>
+            <option value="New">New</option>
+            <option value="Contacted">Contacted</option>
+            <option value="Viewing">Viewing</option>
+            <option value="Offer">Offer</option>
+            <option value="Won">Won</option>
+            <option value="Lost">Lost</option>
+          </select>
+
+          <select id="filter-score" class="filter-select">
+            <option value="">All Temperatures</option>
+            <option value="HOT">HOT (70-100)</option>
+            <option value="WARM">WARM (45-69)</option>
+            <option value="COLD">COLD (0-44)</option>
+          </select>
+
+          <select id="filter-agent" class="filter-select">
+            <option value="">All Advisory Partners</option>
+            <option value="Alexander Wright">Alexander Wright</option>
+            <option value="Elena Rostova">Elena Rostova</option>
+            <option value="Tariq Al-Mansoor">Tariq Al-Mansoor</option>
+          </select>
+        </div>
+
+        <button type="button" class="btn-export" id="btn-export-excel">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Export to Excel
+        </button>
+      </div>
+
+      <div class="leads-table-container">
+        <table class="leads-table">
+          <thead>
+            <tr>
+              <th>Score</th>
+              <th>Status</th>
+              <th>Client Name</th>
+              <th>Phone</th>
+              <th>Budget (AED)</th>
+              <th>Community / Property</th>
+              <th>Source Form</th>
+              <th>Advisor</th>
+              <th>Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="leads-table-body">
+            <!-- Populated via JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- TAB 4: VIEWINGS SCHEDULE                                               -->
+    <!-- ===================================================================== -->
+    <section class="tab-pane" id="tab-viewings">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+        <div>
+          <h2 style="font-family: var(--font-heading); font-size: 1.6rem; color: #FFFFFF;">Private Property Viewings</h2>
+          <p style="font-size: 0.75rem; color: var(--admin-text-muted); text-transform: uppercase; letter-spacing: 0.1em;">Scheduled client walkthroughs and luxury frond inspections</p>
+        </div>
+      </div>
+
+      <div class="leads-table-container">
+        <table class="leads-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Buyer Name</th>
+              <th>Property Residence</th>
+              <th>Assigned Partner</th>
+              <th>Date & Time</th>
+              <th>Status</th>
+              <th>VIP Special Instructions</th>
+            </tr>
+          </thead>
+          <tbody id="viewings-table-body">
+            <!-- Populated via JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- TAB 5: AGENT LEADERBOARD                                               -->
+    <!-- ===================================================================== -->
+    <section class="tab-pane" id="tab-leaderboard">
+      <div style="margin-bottom: 2rem;">
+        <h2 style="font-family: var(--font-heading); font-size: 1.6rem; color: #FFFFFF;">Partner Performance Leaderboard</h2>
+        <p style="font-size: 0.75rem; color: var(--admin-text-muted); text-transform: uppercase; letter-spacing: 0.1em;">Monthly deal volume targets & commission earnings</p>
+      </div>
+
+      <div class="leaderboard-grid" id="leaderboard-container">
+        <!-- Populated via JavaScript -->
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- TAB 6: STALE LEADS (3+ DAYS NO ACTIVITY)                               -->
+    <!-- ===================================================================== -->
+    <section class="tab-pane" id="tab-stale">
+      <div style="margin-bottom: 1.5rem;">
+        <h2 style="font-family: var(--font-heading); font-size: 1.6rem; color: #F87171;">Inactive Leads Requiring Attention</h2>
+        <p style="font-size: 0.75rem; color: var(--admin-text-muted); text-transform: uppercase; letter-spacing: 0.1em;">Leads without any notes or stage progression for 3 or more days</p>
+      </div>
+
+      <div class="leads-table-container">
+        <table class="leads-table">
+          <thead>
+            <tr>
+              <th>Urgency</th>
+              <th>Client Name</th>
+              <th>Contact Phone</th>
+              <th>Stage</th>
+              <th>Budget (AED)</th>
+              <th>Assigned Partner</th>
+              <th>Days Inactive</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="stale-table-body">
+            <!-- Populated via JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- TAB 7: INVENTORY MANAGEMENT (PROPERTIES & PROJECTS)                    -->
+    <!-- ===================================================================== -->
+    <section class="tab-pane" id="tab-inventory">
+      <div class="inventory-nav">
+        <button type="button" class="inventory-nav-btn active" id="inv-tab-ready" onclick="switchInventory('ready')">Ready Residences (15)</button>
+        <button type="button" class="inventory-nav-btn" id="inv-tab-offplan" onclick="switchInventory('offplan')">Off-Plan Projects (6)</button>
+        <div style="margin-left: auto;">
+          <button type="button" class="btn-export" id="btn-add-inventory" onclick="openAddInventoryModal()">+ Add New Residence</button>
+        </div>
+      </div>
+
+      <!-- Ready Properties Section -->
+      <div id="inventory-ready-section">
+        <div class="leads-table-container">
+          <table class="leads-table">
+            <thead>
+              <tr>
+                <th>Residence Title</th>
+                <th>Community</th>
+                <th>Type</th>
+                <th>Beds</th>
+                <th>Price (AED)</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="properties-table-body">
+              <!-- Populated via JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Off-Plan Projects Section -->
+      <div id="inventory-offplan-section" style="display: none;">
+        <div class="leads-table-container">
+          <table class="leads-table">
+            <thead>
+              <tr>
+                <th>Project Title</th>
+                <th>Master Developer</th>
+                <th>Location</th>
+                <th>Starting Price (AED)</th>
+                <th>Handover</th>
+                <th>ROI Projection</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="offplan-table-body">
+              <!-- Populated via JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================================= -->
+  <!-- LEAD DETAILS DRAWER / MODAL                                             -->
+  <!-- ======================================================================= -->
+  <div class="drawer-overlay" id="lead-drawer">
+    <div class="drawer-panel">
+      <div class="drawer-header">
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.35rem;">
+            <span class="lead-score-badge" id="drawer-score-badge">95 HOT</span>
+            <span style="font-size: 0.7rem; color: var(--admin-text-muted); text-transform: uppercase; letter-spacing: 0.1em;" id="drawer-lead-id">Lead #1</span>
+          </div>
+          <h2 style="font-family: var(--font-heading); font-size: 1.8rem; color: #FFFFFF;" id="drawer-lead-name">Lord Julian Sterling</h2>
+        </div>
+        <button type="button" class="drawer-close" onclick="closeLeadDrawer()" aria-label="Close Drawer">&times;</button>
+      </div>
+
+      <div class="drawer-content">
+        <!-- Direct Quick Contact Actions -->
+        <div class="lead-actions-bar">
+          <a href="#" id="drawer-call-btn" class="btn-contact call">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            Call Buyer
+          </a>
+
+          <a href="#" id="drawer-wa-btn" target="_blank" class="btn-contact wa">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+            WhatsApp
+          </a>
+
+          <button type="button" id="drawer-won-btn" class="btn-contact won" onclick="triggerDealWon()">
+            ★ Mark as Won
+          </button>
+        </div>
+
+        <!-- Stage & Agent Selector -->
+        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--admin-border); padding: 1.25rem; margin-bottom: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <label style="display: block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--admin-text-muted); margin-bottom: 0.4rem;">Pipeline Stage</label>
+            <select id="drawer-stage-select" class="filter-select" style="width: 100%;">
+              <option value="New">New Inquiries</option>
+              <option value="Contacted">Contacted</option>
+              <option value="Viewing">Private Viewing</option>
+              <option value="Offer">Offer / LOI</option>
+              <option value="Won">Won (Closed Deal)</option>
+              <option value="Lost">Archived / Lost</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="display: block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--admin-text-muted); margin-bottom: 0.4rem;">Assigned Advisory Partner</label>
+            <select id="drawer-agent-select" class="filter-select" style="width: 100%;">
+              <option value="Alexander Wright">Alexander Wright</option>
+              <option value="Elena Rostova">Elena Rostova</option>
+              <option value="Tariq Al-Mansoor">Tariq Al-Mansoor</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Detailed Specifications -->
+        <div class="detail-section">
+          <div class="detail-section-title">Client Profile & Preferences</div>
+          <div class="detail-grid">
+            <div>
+              <div class="detail-item-label">Telephone</div>
+              <div class="detail-item-val" id="drawer-phone">+971 50 123 4567</div>
+            </div>
+            <div>
+              <div class="detail-item-label">Email</div>
+              <div class="detail-item-val" id="drawer-email">client@domain.com</div>
+            </div>
+            <div>
+              <div class="detail-item-label">Budget (AED)</div>
+              <div class="detail-item-val" id="drawer-budget" style="color: var(--admin-gold); font-weight: 500;">AED 0</div>
+            </div>
+            <div>
+              <div class="detail-item-label">Payment Method</div>
+              <div class="detail-item-val" id="drawer-payment-method">Cash Buyer</div>
+            </div>
+            <div>
+              <div class="detail-item-label">Preferred Location</div>
+              <div class="detail-item-val" id="drawer-community">Palm Jumeirah</div>
+            </div>
+            <div>
+              <div class="detail-item-label">Target Property / Project</div>
+              <div class="detail-item-val" id="drawer-property">The Palm Crest Sanctuary</div>
+            </div>
+            <div>
+              <div class="detail-item-label">Originating Source Form</div>
+              <div class="detail-item-val" id="drawer-source-form" style="color: #60A5FA;">Book a Viewing Form</div>
+            </div>
+            <div>
+              <div class="detail-item-label">Purchasing Timeframe</div>
+              <div class="detail-item-val" id="drawer-timeframe">Immediate</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Client Inquiry Message -->
+        <div class="detail-section">
+          <div class="detail-section-title">Original Client Request</div>
+          <div style="background: rgba(0, 0, 0, 0.4); padding: 1rem; border-left: 2px solid var(--admin-gold); font-size: 0.85rem; color: #D1D5DB; line-height: 1.5;" id="drawer-message">
+            None provided.
+          </div>
+        </div>
+
+        <!-- Notes & Activity Timeline -->
+        <div class="detail-section">
+          <div class="detail-section-title">Advisor Notes & Activity Log</div>
+          <div class="notes-list" id="drawer-notes-list">
+            <!-- Notes loaded dynamically -->
+          </div>
+
+          <!-- Add Note Form -->
+          <form id="add-note-form" class="note-form">
+            <textarea id="note-input" placeholder="Type confidential client update, discussion points, or viewing notes..." required></textarea>
+            <button type="submit" class="btn-export" style="align-self: flex-end; padding: 0.8rem 1.2rem;">Post Note</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================= -->
+  <!-- MODAL: DEAL WON & 2% COMMISSION CALCULATOR                              -->
+  <!-- ======================================================================= -->
+  <div class="modal-backdrop" id="won-modal">
+    <div class="modal-box">
+      <h3 class="modal-box-title">Record Deal Won</h3>
+      <p class="modal-box-subtitle">2% Executive Commission & Property Status Update</p>
+
+      <div class="commission-callout">
+        <div style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--admin-text-muted); margin-bottom: 0.35rem;">Agency Commission Earned (2%)</div>
+        <div class="commission-number" id="modal-commission-preview">AED 0</div>
+        <div style="font-size: 0.7rem; color: var(--admin-text-muted); margin-top: 0.35rem;">Calculated automatically on closing price</div>
+      </div>
+
+      <form id="won-form">
+        <div class="form-group-modal">
+          <label for="won-sale-price">Actual Agreed Sale Price (AED) *</label>
+          <input type="number" id="won-sale-price" required placeholder="e.g. 35000000" min="100000">
+        </div>
+
+        <div class="form-group-modal">
+          <label for="won-property-title">Sold Property / Residence Title</label>
+          <input type="text" id="won-property-title" placeholder="The Palm Crest Sanctuary">
+        </div>
+
+        <div class="form-group-modal">
+          <label for="won-agent-name">Closing Advisory Partner</label>
+          <select id="won-agent-name">
+            <option value="Alexander Wright">Alexander Wright</option>
+            <option value="Elena Rostova">Elena Rostova</option>
+            <option value="Tariq Al-Mansoor">Tariq Al-Mansoor</option>
+          </select>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; margin-top: 1.75rem;">
+          <button type="button" class="btn-header-sm" onclick="closeWonModal()" style="flex: 1; padding: 0.85rem;">Cancel</button>
+          <button type="submit" class="btn btn-login" style="flex: 2; margin-top: 0; background: var(--admin-gold); color: #1A1A1A;">Finalize & Mark Sold</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================================================================= -->
+  <!-- MODAL: ADD / EDIT INVENTORY RESIDENCE                                   -->
+  <!-- ======================================================================= -->
+  <div class="modal-backdrop" id="inventory-modal">
+    <div class="modal-box" style="max-width: 600px;">
+      <h3 class="modal-box-title" id="inv-modal-title">Add Ready Residence</h3>
+      <p class="modal-box-subtitle">Emmanuel Real Estate Luxury Portfolio</p>
+
+      <form id="property-form">
+        <input type="hidden" id="prop-id">
+        <div class="form-group-modal">
+          <label for="prop-title">Residence Title *</label>
+          <input type="text" id="prop-title" required placeholder="e.g. The Elysian Sunset Frond Villa">
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group-modal">
+            <label for="prop-community">Community *</label>
+            <select id="prop-community" required>
+              <option value="Palm Jumeirah">Palm Jumeirah</option>
+              <option value="Downtown">Downtown</option>
+              <option value="Dubai Marina">Dubai Marina</option>
+              <option value="Business Bay">Business Bay</option>
+              <option value="Dubai Hills">Dubai Hills</option>
+              <option value="JVC">JVC</option>
+            </select>
+          </div>
+
+          <div class="form-group-modal">
+            <label for="prop-type">Property Type *</label>
+            <select id="prop-type" required>
+              <option value="Villa">Villa</option>
+              <option value="Penthouse">Penthouse</option>
+              <option value="Apartment">Apartment</option>
+              <option value="Townhouse">Townhouse</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+          <div class="form-group-modal">
+            <label for="prop-beds">Bedrooms</label>
+            <input type="number" id="prop-beds" value="4" min="1" max="12">
+          </div>
+          <div class="form-group-modal">
+            <label for="prop-baths">Bathrooms</label>
+            <input type="number" id="prop-baths" value="5" min="1" max="15">
+          </div>
+          <div class="form-group-modal">
+            <label for="prop-sqft">Built-Up Sqft</label>
+            <input type="number" id="prop-sqft" value="6500" min="500">
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group-modal">
+            <label for="prop-price">Price (AED) *</label>
+            <input type="number" id="prop-price" required placeholder="35000000" min="500000">
+          </div>
+          <div class="form-group-modal">
+            <label for="prop-status">Status</label>
+            <select id="prop-status">
+              <option value="Available">Available</option>
+              <option value="Under Offer">Under Offer</option>
+              <option value="Sold">Sold</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group-modal">
+          <label for="prop-image">Photo URL</label>
+          <input type="url" id="prop-image" placeholder="https://images.unsplash.com/...">
+        </div>
+
+        <div class="form-group-modal">
+          <label for="prop-description">Architectural Description</label>
+          <textarea id="prop-description" rows="3" placeholder="Prime architectural residence featuring..."></textarea>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; margin-top: 1.5rem;">
+          <button type="button" class="btn-header-sm" onclick="closeInventoryModal()" style="flex: 1; padding: 0.85rem;">Cancel</button>
+          <button type="submit" class="btn btn-login" style="flex: 2; margin-top: 0; background: var(--admin-gold); color: #1A1A1A;">Save Residence</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="./admin.js"></script>
+</body>
+</html>

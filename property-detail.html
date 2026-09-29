@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Residence Details | Emmanuel Real Estate Dubai</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="main-header" class="site-header solid-header">
+    <div class="header-inner container">
+      <a href="./" class="brand-logo logo-charcoal" aria-label="Emmanuel Real Estate">
+        <div class="logo-text">
+          <span class="logo-title">Emman</span>
+          <span class="logo-divider"></span>
+          <span class="logo-subtitle">REAL ESTATE</span>
+        </div>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="./properties.html" class="nav-link active">Properties</a></li>
+          <li><a href="./offplan.html" class="nav-link">Off-Plan</a></li>
+          <li><a href="./calculator.html" class="nav-link">Mortgage Calculator</a></li>
+          <li><a href="./sell.html" class="nav-link">Sell</a></li>
+          <li><a href="./about.html" class="nav-link">About</a></li>
+          <li><a href="./contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-action">
+        <button type="button" class="btn btn-outline btn-register-trigger" data-modal="register-modal">
+          Register Interest
+        </button>
+        <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+          <span class="toggle-bar"></span>
+          <span class="toggle-bar"></span>
+          <span class="toggle-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-menu-overlay" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-header">
+      <div class="brand-logo logo-white">
+        <div class="logo-text">
+          <span class="logo-title text-white">Emman</span>
+          <span class="logo-divider"></span>
+          <span class="logo-subtitle text-white">REAL ESTATE</span>
+        </div>
+      </div>
+      <button type="button" class="mobile-close" id="mobile-close">&times;</button>
+    </div>
+    <div class="mobile-menu-content">
+      <nav class="mobile-nav">
+        <ul>
+          <li><a href="./properties.html" class="mobile-link">Properties</a></li>
+          <li><a href="./offplan.html" class="mobile-link">Off-Plan</a></li>
+          <li><a href="./calculator.html" class="mobile-link">Mortgage Calculator</a></li>
+          <li><a href="./sell.html" class="mobile-link">Sell</a></li>
+          <li><a href="./about.html" class="mobile-link">About</a></li>
+          <li><a href="./contact.html" class="mobile-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <main>
+    <div class="container detail-page-container">
+      <!-- Breadcrumbs -->
+      <div class="detail-breadcrumbs">
+        <a href="./">Home</a>
+        <span>/</span>
+        <a href="./properties.html">Properties</a>
+        <span>/</span>
+        <span id="breadcrumb-prop-title" style="color: var(--color-charcoal);">Loading Residence...</span>
+      </div>
+
+      <!-- Main Layout Grid -->
+      <div class="detail-layout-grid" id="detail-main-layout">
+        <!-- Left: Gallery & Property Overview -->
+        <div class="detail-content-col">
+          <div class="detail-gallery-main">
+            <img id="prop-hero-img" src="" alt="Property Gallery" loading="eager">
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 1.5rem;">
+            <div>
+              <span class="section-gold-label" id="prop-detail-tag">READY RESIDENCE</span>
+              <h1 class="page-banner-title" id="prop-title" style="text-align: left; margin-bottom: 0.25rem;">—</h1>
+              <p style="font-size: 0.85rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-warm-gray);" id="prop-community-line">—</p>
+            </div>
+            <div style="text-align: right;">
+              <span style="font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-gold); display: block;">ASKING PRICE</span>
+              <div class="detail-price-tag" id="prop-price">—</div>
+            </div>
+          </div>
+
+          <!-- Specs Bar -->
+          <div class="detail-specs-bar">
+            <div class="detail-spec-item">
+              <span class="detail-spec-lbl">BEDROOMS</span>
+              <span class="detail-spec-v" id="prop-spec-beds">—</span>
+            </div>
+            <div class="detail-spec-item">
+              <span class="detail-spec-lbl">BATHROOMS</span>
+              <span class="detail-spec-v" id="prop-spec-baths">—</span>
+            </div>
+            <div class="detail-spec-item">
+              <span class="detail-spec-lbl">BUILT-UP AREA</span>
+              <span class="detail-spec-v" id="prop-spec-size">—</span>
+            </div>
+            <div class="detail-spec-item">
+              <span class="detail-spec-lbl">PROPERTY TYPE</span>
+              <span class="detail-spec-v" id="prop-spec-type">—</span>
+            </div>
+          </div>
+
+          <!-- Architectural Narrative -->
+          <div style="margin: 2.5rem 0;">
+            <h3 style="font-family: var(--font-heading); font-size: 1.8rem; font-weight: 400; margin-bottom: 1rem; color: var(--color-charcoal);">
+              Architectural Overview
+            </h3>
+            <div class="section-title-divider"></div>
+            <p id="prop-description" style="font-size: 1rem; line-height: 1.8; color: var(--color-warm-gray); margin-bottom: 2rem;">
+              —
+            </p>
+
+            <h4 style="font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-gold); margin-bottom: 1rem;">
+              KEY RESIDENTIAL AMENITIES
+            </h4>
+            <div id="prop-features-list" style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <!-- Dynamic features -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: "Book a Viewing" & "Enquire" Forms -->
+        <div class="detail-sidebar-col">
+          <div class="detail-sidebar-card">
+            <!-- Form Tabs -->
+            <div class="detail-tabs-nav">
+              <button type="button" class="detail-tab-btn active" id="tab-btn-viewing">Book a Viewing</button>
+              <button type="button" class="detail-tab-btn" id="tab-btn-enquire">Enquire Now</button>
+            </div>
+
+            <!-- Tab 1: Book a Viewing Form -->
+            <div id="tab-viewing-container">
+              <form id="viewing-form" class="luxury-form" onsubmit="return false;">
+                <input type="text" name="honeypot" class="field-honeypot" tabindex="-1" autocomplete="off">
+                <input type="hidden" name="property_id" id="vw-prop-id" value="">
+                <input type="hidden" name="property_name" id="vw-prop-name" value="">
+
+                <div class="form-group">
+                  <label class="form-label" for="vw-name">YOUR FULL NAME</label>
+                  <input type="text" name="name" id="vw-name" class="form-input" placeholder="e.g. Lord Alexander Wright" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="vw-phone">PHONE / WHATSAPP</label>
+                  <input type="tel" name="phone" id="vw-phone" class="form-input" placeholder="+971 50 000 0000" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="vw-email">EMAIL ADDRESS</label>
+                  <input type="email" name="email" id="vw-email" class="form-input" placeholder="alexander@domain.com">
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="vw-date">PREFERRED DATE</label>
+                    <input type="date" name="viewing_date" id="vw-date" class="form-input" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="vw-time">PREFERRED TIME</label>
+                    <select name="viewing_time" id="vw-time" class="form-input">
+                      <option>10:00 AM</option>
+                      <option>12:00 PM</option>
+                      <option>02:30 PM</option>
+                      <option>04:30 PM (Sunset)</option>
+                      <option>06:00 PM (Twilight)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="vw-notes">SPECIAL ARRANGEMENTS</label>
+                  <textarea name="notes" id="vw-notes" class="form-input form-textarea" rows="2" placeholder="e.g. Chauffeur pickup at DIFC, Arabic/Russian speaking partner..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-solid-charcoal w-full">
+                  Confirm Private Viewing
+                </button>
+                <p class="modal-footnote">Strict client privacy standards apply.</p>
+              </form>
+            </div>
+
+            <!-- Tab 2: Enquire Form -->
+            <div id="tab-enquire-container" class="hidden">
+              <form id="enquire-form" class="luxury-form" onsubmit="return false;">
+                <input type="text" name="honeypot" class="field-honeypot" tabindex="-1" autocomplete="off">
+                <input type="hidden" name="source" value="Property Detail Enquire Form">
+                <input type="hidden" name="preferred_community" id="enq-community" value="">
+                <input type="hidden" name="property_type" id="enq-proptype" value="">
+
+                <div class="form-group">
+                  <label class="form-label" for="enq-name">YOUR FULL NAME</label>
+                  <input type="text" name="name" id="enq-name" class="form-input" placeholder="e.g. Lady Vivienne Cross" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="enq-phone">PHONE / WHATSAPP</label>
+                  <input type="tel" name="phone" id="enq-phone" class="form-input" placeholder="+971 50 000 0000" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="enq-email">EMAIL ADDRESS</label>
+                  <input type="email" name="email" id="enq-email" class="form-input" placeholder="vivienne@domain.com">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="enq-message">YOUR SPECIFIC INQUIRY</label>
+                  <textarea name="message" id="enq-message" class="form-input form-textarea" rows="4" placeholder="Request floorplans, conveyancing details, Golden Visa structuring, or negotiate an offer..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-solid-charcoal w-full">
+                  Send Confidential Inquiry
+                </button>
+                <p class="modal-footnote">Direct confidential channel to listing partner.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- SIMPLE DARK FOOTER WITH THE LOGO -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="./" class="brand-logo logo-white" aria-label="Emmanuel Real Estate">
+            <div class="logo-text">
+              <span class="logo-title text-white">Emman</span>
+              <span class="logo-divider"></span>
+              <span class="logo-subtitle text-white">REAL ESTATE</span>
+            </div>
+          </a>
+          <p class="footer-mission">
+            Purveyors of architectural distinction across Dubai. Curating extraordinary residences for the world's most discerning collectors.
+          </p>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5 class="footer-heading">RESIDENCES</h5>
+          <ul class="footer-links">
+            <li><a href="./properties.html?community=palm-jumeirah">Palm Jumeirah Villas</a></li>
+            <li><a href="./properties.html?community=downtown">Downtown Penthouses</a></li>
+            <li><a href="./properties.html?community=dubai-marina">Dubai Marina Waterfront</a></li>
+            <li><a href="./properties.html?community=dubai-hills">Dubai Hills Estates</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5 class="footer-heading">NAVIGATION</h5>
+          <ul class="footer-links">
+            <li><a href="./properties.html">Ready Properties</a></li>
+            <li><a href="./offplan.html">Off-Plan Projects</a></li>
+            <li><a href="./calculator.html">Mortgage Calculator</a></li>
+            <li><a href="./sell.html">Sell Your Property</a></li>
+            <li><a href="./about.html">About Emmanuel</a></li>
+            <li><a href="./contact.html">Contact DIFC Office</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5 class="footer-heading">DUBAI HEADQUARTERS</h5>
+          <address class="footer-address">
+            Gate Precinct 4, Level 42<br>
+            Dubai International Financial Centre (DIFC)<br>
+            Dubai, United Arab Emirates<br>
+            <span class="footer-contact-item">Tel: +971 4 820 9000</span>
+          </address>
+        </div>
+      </div>
+
+      <div class="footer-gold-separator"></div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          &copy; <span id="current-year">2026</span> Emmanuel Real Estate. All rights reserved. Prices indicated in UAE Dirhams (AED).
+        </p>
+        <div class="footer-legal-links">
+          <span>Confidentiality Protocol</span>
+          <span>•</span>
+          <span>Terms of Representation</span>
+          <span>•</span>
+          <span>DIFC Private Advisory</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./common.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const propId = urlParams.get('id') || '1';
+
+      // Set default viewing date to tomorrow
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      const dateInput = document.getElementById('vw-date');
+      if (dateInput) {
+        dateInput.value = tomorrow.toISOString().split('T')[0];
+        dateInput.min = new Date().toISOString().split('T')[0];
+      }
+
+      // Fetch Property Details
+      try {
+        const res = await fetch(`/api/properties/${propId}`);
+        if (!res.ok) throw new Error('Property not found');
+        const p = await res.json();
+
+        document.title = `${p.title} | Emmanuel Real Estate Dubai`;
+        document.getElementById('breadcrumb-prop-title').textContent = p.title;
+        document.getElementById('prop-hero-img').src = p.image;
+        document.getElementById('prop-title').textContent = p.title;
+        document.getElementById('prop-community-line').textContent = `${p.community} • DUBAI, UAE`;
+        document.getElementById('prop-price').textContent = formatAED(p.price_aed);
+        document.getElementById('prop-detail-tag').textContent = p.tag || 'READY RESIDENCE';
+
+        document.getElementById('prop-spec-beds').textContent = `${p.bedrooms} Beds`;
+        document.getElementById('prop-spec-baths').textContent = `${p.bathrooms} Baths`;
+        document.getElementById('prop-spec-size').textContent = `${p.built_up_sqft.toLocaleString()} Sq.Ft`;
+        document.getElementById('prop-spec-type').textContent = p.type;
+
+        document.getElementById('prop-description').textContent = p.description;
+
+        const featContainer = document.getElementById('prop-features-list');
+        if (featContainer && p.features) {
+          featContainer.innerHTML = p.features.map(f => `
+            <div style="display:flex; align-items:center; gap:0.75rem; font-size:0.9rem; color:var(--color-charcoal);">
+              <span style="width:5px; height:5px; background:var(--color-gold); display:inline-block;"></span>
+              <span>${f}</span>
+            </div>
+          `).join('');
+        }
+
+        // Hidden fields for forms
+        document.getElementById('vw-prop-id').value = p.id;
+        document.getElementById('vw-prop-name').value = p.title;
+        document.getElementById('enq-community').value = p.community;
+        document.getElementById('enq-proptype').value = `${p.title} (${p.type})`;
+      } catch (err) {
+        console.error('Failed to load property details:', err);
+      }
+
+      // Tab switching
+      const tabViewing = document.getElementById('tab-btn-viewing');
+      const tabEnquire = document.getElementById('tab-btn-enquire');
+      const cViewing = document.getElementById('tab-viewing-container');
+      const cEnquire = document.getElementById('tab-enquire-container');
+
+      if (tabViewing && tabEnquire) {
+        tabViewing.addEventListener('click', () => {
+          tabViewing.classList.add('active');
+          tabEnquire.classList.remove('active');
+          cViewing.classList.remove('hidden');
+          cEnquire.classList.add('hidden');
+        });
+
+        tabEnquire.addEventListener('click', () => {
+          tabEnquire.classList.add('active');
+          tabViewing.classList.remove('active');
+          cEnquire.classList.remove('hidden');
+          cViewing.classList.add('hidden');
+        });
+      }
+
+      // Form 1: Book Viewing
+      const vwForm = document.getElementById('viewing-form');
+      if (vwForm) {
+        vwForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          submitFormWithSpamCheck(vwForm, '/api/viewings');
+        });
+      }
+
+      // Form 2: Enquire
+      const enqForm = document.getElementById('enquire-form');
+      if (enqForm) {
+        enqForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          submitFormWithSpamCheck(enqForm, '/api/leads');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

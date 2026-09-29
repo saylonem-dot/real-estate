@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dubai Mortgage & Upfront Costs Calculator | Emmanuel Real Estate</title>
+  <meta name="description" content="Calculate monthly installments and estimated upfront acquisition costs for Dubai luxury properties in AED. Speak directly with a private mortgage advisor.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="main-header" class="site-header solid-header">
+    <div class="header-inner container">
+      <a href="./" class="brand-logo logo-charcoal" aria-label="Emmanuel Real Estate">
+        <div class="logo-text">
+          <span class="logo-title">Emman</span>
+          <span class="logo-divider"></span>
+          <span class="logo-subtitle">REAL ESTATE</span>
+        </div>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="./properties.html" class="nav-link">Properties</a></li>
+          <li><a href="./offplan.html" class="nav-link">Off-Plan</a></li>
+          <li><a href="./calculator.html" class="nav-link active">Mortgage Calculator</a></li>
+          <li><a href="./sell.html" class="nav-link">Sell</a></li>
+          <li><a href="./about.html" class="nav-link">About</a></li>
+          <li><a href="./contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-action">
+        <button type="button" class="btn btn-outline btn-register-trigger" data-modal="register-modal">
+          Register Interest
+        </button>
+        <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+          <span class="toggle-bar"></span>
+          <span class="toggle-bar"></span>
+          <span class="toggle-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-menu-overlay" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-header">
+      <div class="brand-logo logo-white">
+        <div class="logo-text">
+          <span class="logo-title text-white">Emman</span>
+          <span class="logo-divider"></span>
+          <span class="logo-subtitle text-white">REAL ESTATE</span>
+        </div>
+      </div>
+      <button type="button" class="mobile-close" id="mobile-close">&times;</button>
+    </div>
+    <div class="mobile-menu-content">
+      <nav class="mobile-nav">
+        <ul>
+          <li><a href="./properties.html" class="mobile-link">Properties</a></li>
+          <li><a href="./offplan.html" class="mobile-link">Off-Plan</a></li>
+          <li><a href="./calculator.html" class="mobile-link">Mortgage Calculator</a></li>
+          <li><a href="./sell.html" class="mobile-link">Sell</a></li>
+          <li><a href="./about.html" class="mobile-link">About</a></li>
+          <li><a href="./contact.html" class="mobile-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <main>
+    <!-- PAGE BANNER -->
+    <section class="page-banner">
+      <div class="container">
+        <span class="section-gold-label">FINANCIAL MODELING</span>
+        <h1 class="page-banner-title">Mortgage & Upfront Costs Calculator</h1>
+        <p class="page-banner-sub">
+          Model your monthly repayments and complete upfront acquisition breakdown in AED, complying with UAE Central Bank mortgage regulations and Dubai Land Department fee schedules.
+        </p>
+      </div>
+    </section>
+
+    <!-- CALCULATOR & SPEAK TO AN ADVISOR SECTION -->
+    <section class="section" style="padding-top: 3.5rem;">
+      <div class="container">
+        <!-- Interactive Sliders and Results -->
+        <div class="calc-wrapper">
+          <div class="calc-inputs-card">
+            <!-- Property Price in AED -->
+            <div class="calc-group">
+              <div class="calc-label-row">
+                <label for="calc-price" class="calc-label">PROPERTY VALUATION (AED)</label>
+                <span class="calc-value-display" id="calc-price-val">AED 12,500,000</span>
+              </div>
+              <input type="range" id="calc-price" min="2000000" max="80000000" step="500000" value="12500000" class="calc-slider">
+              <div class="slider-ticks">
+                <span>AED 2M</span>
+                <span>AED 40M</span>
+                <span>AED 80M</span>
+              </div>
+            </div>
+
+            <!-- Down Payment % -->
+            <div class="calc-group">
+              <div class="calc-label-row">
+                <label for="calc-down" class="calc-label">DOWN PAYMENT (<span id="calc-down-pct">20%</span>)</label>
+                <span class="calc-value-display" id="calc-down-val">AED 2,500,000</span>
+              </div>
+              <input type="range" id="calc-down" min="10" max="60" step="5" value="20" class="calc-slider">
+              <div class="slider-ticks">
+                <span>10% (Off-Plan Booking)</span>
+                <span>20% (UAE Expat Standard)</span>
+                <span>60%</span>
+              </div>
+            </div>
+
+            <!-- Loan Period (Years) -->
+            <div class="calc-group">
+              <div class="calc-label-row">
+                <label for="calc-years" class="calc-label">TENURE PERIOD</label>
+                <span class="calc-value-display" id="calc-years-val">25 Years</span>
+              </div>
+              <input type="range" id="calc-years" min="5" max="25" step="1" value="25" class="calc-slider">
+              <div class="slider-ticks">
+                <span>5 Years</span>
+                <span>15 Years</span>
+                <span>25 Years</span>
+              </div>
+            </div>
+
+            <!-- Interest Rate % -->
+            <div class="calc-group">
+              <div class="calc-label-row">
+                <label for="calc-rate" class="calc-label">ANNUAL INTEREST RATE</label>
+                <span class="calc-value-display" id="calc-rate-val">4.25%</span>
+              </div>
+              <input type="range" id="calc-rate" min="2.5" max="8.0" step="0.05" value="4.25" class="calc-slider">
+              <div class="slider-ticks">
+                <span>2.50%</span>
+                <span>4.25% (Prime Fixed Rate)</span>
+                <span>8.00%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Calculation Summary Output Card -->
+          <div class="calc-results-card">
+            <div class="calc-results-header">
+              <span class="calc-tag">ESTIMATED MONTHLY INSTALLMENT</span>
+              <div class="monthly-payment-amount" id="result-monthly-payment">AED 54,208</div>
+              <p class="calc-disclaimer">Computed via UAE amortized reducing balance formula</p>
+            </div>
+
+            <div class="calc-divider"></div>
+
+            <h4 style="font-size:0.68rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:var(--color-gold); margin-bottom:1.25rem;">
+              ESTIMATED UPFRONT COSTS (AED)
+            </h4>
+
+            <div class="calc-stats-grid">
+              <div class="calc-stat-box">
+                <span class="calc-stat-label">DOWN PAYMENT</span>
+                <span class="calc-stat-val" id="result-down-amount">AED 2,500,000</span>
+              </div>
+              <div class="calc-stat-box">
+                <span class="calc-stat-label">DLD TRANSFER FEE (4%)</span>
+                <span class="calc-stat-val" id="result-dld-fee">AED 500,000</span>
+              </div>
+              <div class="calc-stat-box">
+                <span class="calc-stat-label">REGISTRATION TRUSTEE</span>
+                <span class="calc-stat-val">AED 4,200</span>
+              </div>
+              <div class="calc-stat-box">
+                <span class="calc-stat-label">MORTGAGE REGISTRATION</span>
+                <span class="calc-stat-val" id="result-mortgage-reg">AED 25,290</span>
+              </div>
+            </div>
+
+            <div style="background-color: var(--color-white); border: 1px solid var(--color-border); padding: 1.25rem; margin-bottom: 1.75rem;">
+              <span style="font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-charcoal); font-weight: 600; display: block; margin-bottom: 0.25rem;">
+                TOTAL INITIAL CAPITAL REQUIRED
+              </span>
+              <span class="calc-stat-val" style="font-size: 1.75rem; color: var(--color-charcoal);" id="result-total-upfront">
+                AED 3,029,490
+              </span>
+            </div>
+
+            <!-- Ratio Visualizer -->
+            <div class="calc-ratio-container">
+              <div class="calc-ratio-bar">
+                <div class="ratio-segment ratio-principal" id="ratio-principal-bar" style="width: 61%;"></div>
+                <div class="ratio-segment ratio-interest" id="ratio-interest-bar" style="width: 39%;"></div>
+              </div>
+              <div class="ratio-legend">
+                <span class="legend-item"><span class="legend-dot dot-charcoal"></span> Financed Principal</span>
+                <span class="legend-item"><span class="legend-dot dot-gold"></span> Interest Over Tenure</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SPEAK TO AN ADVISOR FORM -->
+        <div style="max-width: 900px; margin: 4.5rem auto 0 auto; background-color: var(--color-white); border: 1px solid var(--color-border); padding: 3.5rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);">
+          <div class="section-header text-center" style="margin-bottom: 2.5rem;">
+            <span class="section-gold-label">PRIVATE BANKING & MORTGAGE</span>
+            <h2 class="section-title">Speak to a Financing Advisor</h2>
+            <div class="section-title-divider center-divider"></div>
+            <p class="section-desc mx-auto">
+              Our in-house financing partners coordinate pre-approvals across major UAE Tier-1 banks (Emirates NBD, FAB, ADCB, HSBC Middle East) for residents and international non-resident buyers.
+            </p>
+          </div>
+
+          <form id="advisor-form" class="luxury-form" onsubmit="return false;">
+            <input type="text" name="honeypot" class="field-honeypot" tabindex="-1" autocomplete="off">
+            <input type="hidden" name="source" value="Mortgage Calculator Page">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="adv-name">YOUR FULL NAME</label>
+                <input type="text" name="name" id="adv-name" class="form-input" placeholder="e.g. Dr. Evelyn Vance" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="adv-phone">MOBILE / WHATSAPP</label>
+                <input type="tel" name="phone" id="adv-phone" class="form-input" placeholder="+971 50 000 0000" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="adv-residency">RESIDENCY STATUS</label>
+                <select name="residency" id="adv-residency" class="form-input">
+                  <option>UAE Resident / Expat</option>
+                  <option>UAE National</option>
+                  <option>Non-Resident International Investor</option>
+                  <option>Offshore / Corporate Entity</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="adv-income">ESTIMATED ANNUAL INCOME</label>
+                <select name="income" id="adv-income" class="form-input">
+                  <option>AED 500,000 – 1,000,000</option>
+                  <option>AED 1,000,000 – 2,500,000</option>
+                  <option>Above AED 2,500,000</option>
+                  <option>Private Family Office Assets</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="adv-message">TARGET PROPERTY / SPECIAL REQUIREMENTS</label>
+              <textarea name="message" id="adv-message" class="form-input form-textarea" rows="3" placeholder="e.g. Seeking pre-approval for Palm Jumeirah villa purchase with 3-year fixed rate..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-solid-charcoal w-full">
+              Request Private Mortgage Consultation
+            </button>
+            <p class="modal-footnote">All financial discussions are held under strict non-disclosure protocol.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SIMPLE DARK FOOTER WITH THE LOGO -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="./" class="brand-logo logo-white" aria-label="Emmanuel Real Estate">
+            <div class="logo-text">
+              <span class="logo-title text-white">Emman</span>
+              <span class="logo-divider"></span>
+              <span class="logo-subtitle text-white">REAL ESTATE</span>
+            </div>
+          </a>
+          <p class="footer-mission">
+            Purveyors of architectural distinction across Dubai. Curating extraordinary residences for the world's most discerning collectors.
+          </p>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5 class="footer-heading">RESIDENCES</h5>
+          <ul class="footer-links">
+            <li><a href="./properties.html?community=palm-jumeirah">Palm Jumeirah Villas</a></li>
+            <li><a href="./properties.html?community=downtown">Downtown Penthouses</a></li>
+            <li><a href="./properties.html?community=dubai-marina">Dubai Marina Waterfront</a></li>
+            <li><a href="./properties.html?community=dubai-hills">Dubai Hills Estates</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5 class="footer-heading">NAVIGATION</h5>
+          <ul class="footer-links">
+            <li><a href="./properties.html">Ready Properties</a></li>
+            <li><a href="./offplan.html">Off-Plan Projects</a></li>
+            <li><a href="./calculator.html">Mortgage Calculator</a></li>
+            <li><a href="./sell.html">Sell Your Property</a></li>
+            <li><a href="./about.html">About Emmanuel</a></li>
+            <li><a href="./contact.html">Contact DIFC Office</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5 class="footer-heading">DUBAI HEADQUARTERS</h5>
+          <address class="footer-address">
+            Gate Precinct 4, Level 42<br>
+            Dubai International Financial Centre (DIFC)<br>
+            Dubai, United Arab Emirates<br>
+            <span class="footer-contact-item">Tel: +971 4 820 9000</span>
+          </address>
+        </div>
+      </div>
+
+      <div class="footer-gold-separator"></div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          &copy; <span id="current-year">2026</span> Emmanuel Real Estate. All rights reserved. Prices indicated in UAE Dirhams (AED).
+        </p>
+        <div class="footer-legal-links">
+          <span>Confidentiality Protocol</span>
+          <span>•</span>
+          <span>Terms of Representation</span>
+          <span>•</span>
+          <span>DIFC Private Advisory</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./common.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const priceSlider = document.getElementById('calc-price');
+      const downSlider = document.getElementById('calc-down');
+      const yearsSlider = document.getElementById('calc-years');
+      const rateSlider = document.getElementById('calc-rate');
+
+      const priceVal = document.getElementById('calc-price-val');
+      const downPct = document.getElementById('calc-down-pct');
+      const downVal = document.getElementById('calc-down-val');
+      const yearsVal = document.getElementById('calc-years-val');
+      const rateVal = document.getElementById('calc-rate-val');
+
+      const resMonthly = document.getElementById('result-monthly-payment');
+      const resDown = document.getElementById('result-down-amount');
+      const resDld = document.getElementById('result-dld-fee');
+      const resMortgageReg = document.getElementById('result-mortgage-reg');
+      const resTotalUpfront = document.getElementById('result-total-upfront');
+
+      const barPrincipal = document.getElementById('ratio-principal-bar');
+      const barInterest = document.getElementById('ratio-interest-bar');
+
+      function calculate() {
+        const price = parseFloat(priceSlider.value);
+        const downPercentage = parseFloat(downSlider.value);
+        const tenureYears = parseInt(yearsSlider.value, 10);
+        const annualRate = parseFloat(rateSlider.value);
+
+        priceVal.textContent = formatAED(price);
+        downPct.textContent = `${downPercentage}%`;
+        const downAmount = price * (downPercentage / 100);
+        downVal.textContent = formatAED(downAmount);
+        yearsVal.textContent = `${tenureYears} Years`;
+        rateVal.textContent = `${annualRate.toFixed(2)}%`;
+
+        const principal = price - downAmount;
+        const monthlyRate = (annualRate / 100) / 12;
+        const totalMonths = tenureYears * 12;
+
+        let monthlyPayment = 0;
+        if (monthlyRate > 0) {
+          monthlyPayment = principal * (monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+        } else {
+          monthlyPayment = principal / totalMonths;
+        }
+
+        const totalRepay = monthlyPayment * totalMonths;
+        const totalInterest = Math.max(0, totalRepay - principal);
+
+        // Dubai Upfront Costs Schedule
+        const dldFee = price * 0.04; // 4% DLD
+        const trusteeFee = 4200; // 4,000 + 5% VAT
+        const mortgageRegFee = (principal * 0.0025) + 290; // 0.25% of loan + AED 290
+        const totalUpfront = downAmount + dldFee + trusteeFee + mortgageRegFee;
+
+        resMonthly.textContent = formatAED(monthlyPayment);
+        resDown.textContent = formatAED(downAmount);
+        resDld.textContent = formatAED(dldFee);
+        resMortgageReg.textContent = formatAED(mortgageRegFee);
+        resTotalUpfront.textContent = formatAED(totalUpfront);
+
+        const sum = principal + totalInterest;
+        if (sum > 0) {
+          const principalPct = Math.round((principal / sum) * 100);
+          const interestPct = 100 - principalPct;
+          if (barPrincipal && barInterest) {
+            barPrincipal.style.width = `${principalPct}%`;
+            barInterest.style.width = `${interestPct}%`;
+          }
+        }
+      }
+
+      [priceSlider, downSlider, yearsSlider, rateSlider].forEach(slider => {
+        slider.addEventListener('input', calculate);
+      });
+
+      calculate();
+
+      // Advisor form submit
+      const advForm = document.getElementById('advisor-form');
+      if (advForm) {
+        advForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          submitFormWithSpamCheck(advForm, '/api/leads');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

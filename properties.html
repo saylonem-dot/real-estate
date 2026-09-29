@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ready Residences in Dubai | Emmanuel Real Estate</title>
+  <meta name="description" content="Explore Emmanuel Real Estate's curated ready luxury residences in Palm Jumeirah, Downtown, Dubai Marina, Business Bay, Dubai Hills, and JVC. Prices in AED.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar (Solid on internal pages) -->
+  <header id="main-header" class="site-header solid-header">
+    <div class="header-inner container">
+      <a href="./" class="brand-logo logo-charcoal" aria-label="Emmanuel Real Estate">
+        <div class="logo-text">
+          <span class="logo-title">Emman</span>
+          <span class="logo-divider"></span>
+          <span class="logo-subtitle">REAL ESTATE</span>
+        </div>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="./properties.html" class="nav-link active">Properties</a></li>
+          <li><a href="./offplan.html" class="nav-link">Off-Plan</a></li>
+          <li><a href="./calculator.html" class="nav-link">Mortgage Calculator</a></li>
+          <li><a href="./sell.html" class="nav-link">Sell</a></li>
+          <li><a href="./about.html" class="nav-link">About</a></li>
+          <li><a href="./contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-action">
+        <button type="button" class="btn btn-outline btn-register-trigger" data-modal="register-modal">
+          Register Interest
+        </button>
+        <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+          <span class="toggle-bar"></span>
+          <span class="toggle-bar"></span>
+          <span class="toggle-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-menu-overlay" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-header">
+      <div class="brand-logo logo-white">
+        <div class="logo-text">
+          <span class="logo-title text-white">Emman</span>
+          <span class="logo-divider"></span>
+          <span class="logo-subtitle text-white">REAL ESTATE</span>
+        </div>
+      </div>
+      <button type="button" class="mobile-close" id="mobile-close">&times;</button>
+    </div>
+    <div class="mobile-menu-content">
+      <nav class="mobile-nav">
+        <ul>
+          <li><a href="./properties.html" class="mobile-link">Properties</a></li>
+          <li><a href="./offplan.html" class="mobile-link">Off-Plan</a></li>
+          <li><a href="./calculator.html" class="mobile-link">Mortgage Calculator</a></li>
+          <li><a href="./sell.html" class="mobile-link">Sell</a></li>
+          <li><a href="./about.html" class="mobile-link">About</a></li>
+          <li><a href="./contact.html" class="mobile-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <main>
+    <!-- PAGE BANNER -->
+    <section class="page-banner">
+      <div class="container">
+        <span class="section-gold-label">EXCLUSIVE PORTFOLIO</span>
+        <h1 class="page-banner-title">Ready Residences</h1>
+        <p class="page-banner-sub">
+          Fifteen turnkey trophy properties across Palm Jumeirah, Downtown, Dubai Marina, Business Bay, Dubai Hills, and JVC. Prices in UAE Dirhams (AED).
+        </p>
+      </div>
+    </section>
+
+    <!-- FILTER PANEL -->
+    <section class="section" style="padding-top: 3.5rem; padding-bottom: 2rem;">
+      <div class="container">
+        <div class="filter-card">
+          <div class="filter-row" style="grid-template-columns: 1fr 1fr 1fr 1fr auto;">
+            <!-- Community Filter -->
+            <div class="filter-col">
+              <label class="filter-label" for="filter-community">COMMUNITY</label>
+              <select id="filter-community" class="filter-select">
+                <option value="all">All Prime Communities</option>
+                <option value="palm-jumeirah">Palm Jumeirah</option>
+                <option value="downtown">Downtown</option>
+                <option value="dubai-marina">Dubai Marina</option>
+                <option value="business-bay">Business Bay</option>
+                <option value="dubai-hills">Dubai Hills</option>
+                <option value="jvc">JVC</option>
+              </select>
+            </div>
+
+            <!-- Property Type -->
+            <div class="filter-col">
+              <label class="filter-label" for="filter-type">PROPERTY TYPE</label>
+              <select id="filter-type" class="filter-select">
+                <option value="all">All Types</option>
+                <option value="villa">Private Villa</option>
+                <option value="penthouse">Sky Penthouse</option>
+                <option value="apartment">Designer Apartment</option>
+                <option value="mansion">Manor / Mansion</option>
+                <option value="townhouse">Townhouse</option>
+              </select>
+            </div>
+
+            <!-- Bedrooms Filter -->
+            <div class="filter-col">
+              <label class="filter-label" for="filter-beds">BEDROOMS</label>
+              <select id="filter-beds" class="filter-select">
+                <option value="all">Any Bedrooms</option>
+                <option value="1">1 Bedroom</option>
+                <option value="2">2 Bedrooms</option>
+                <option value="3">3 Bedrooms</option>
+                <option value="4">4 Bedrooms</option>
+                <option value="5">5 Bedrooms</option>
+                <option value="6">6+ Bedrooms</option>
+              </select>
+            </div>
+
+            <!-- Max Price Filter -->
+            <div class="filter-col">
+              <label class="filter-label" for="filter-maxprice">MAX PRICE (AED)</label>
+              <select id="filter-maxprice" class="filter-select">
+                <option value="all">Any Price</option>
+                <option value="5000000">Up to AED 5,000,000</option>
+                <option value="15000000">Up to AED 15,000,000</option>
+                <option value="30000000">Up to AED 30,000,000</option>
+                <option value="50000000">Up to AED 50,000,000</option>
+              </select>
+            </div>
+
+            <!-- Reset Button -->
+            <div class="filter-action">
+              <button type="button" id="btn-reset-filters" class="btn btn-outline-charcoal" style="padding: 0.85rem 1.25rem;">
+                Reset
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Result count bar -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--color-border);">
+          <span style="font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-warm-gray);" id="prop-count-label">
+            Showing All Residences
+          </span>
+          <span style="font-size: 0.75rem; color: var(--color-gold); font-weight: 500;">
+            100% Verified Ready Title Deeds
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROPERTIES GRID -->
+    <section class="section" style="padding-top: 2rem;">
+      <div class="container">
+        <div class="properties-grid" id="all-properties-grid">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SIMPLE DARK FOOTER WITH THE LOGO -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="./" class="brand-logo logo-white" aria-label="Emmanuel Real Estate">
+            <div class="logo-text">
+              <span class="logo-title text-white">Emman</span>
+              <span class="logo-divider"></span>
+              <span class="logo-subtitle text-white">REAL ESTATE</span>
+            </div>
+          </a>
+          <p class="footer-mission">
+            Purveyors of architectural distinction across Dubai. Curating extraordinary residences for the world's most discerning collectors.
+          </p>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5 class="footer-heading">RESIDENCES</h5>
+          <ul class="footer-links">
+            <li><a href="./properties.html?community=palm-jumeirah">Palm Jumeirah Villas</a></li>
+            <li><a href="./properties.html?community=downtown">Downtown Penthouses</a></li>
+            <li><a href="./properties.html?community=dubai-marina">Dubai Marina Waterfront</a></li>
+            <li><a href="./properties.html?community=dubai-hills">Dubai Hills Estates</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5 class="footer-heading">NAVIGATION</h5>
+          <ul class="footer-links">
+            <li><a href="./properties.html">Ready Properties</a></li>
+            <li><a href="./offplan.html">Off-Plan Projects</a></li>
+            <li><a href="./calculator.html">Mortgage Calculator</a></li>
+            <li><a href="./sell.html">Sell Your Property</a></li>
+            <li><a href="./about.html">About Emmanuel</a></li>
+            <li><a href="./contact.html">Contact DIFC Office</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5 class="footer-heading">DUBAI HEADQUARTERS</h5>
+          <address class="footer-address">
+            Gate Precinct 4, Level 42<br>
+            Dubai International Financial Centre (DIFC)<br>
+            Dubai, United Arab Emirates<br>
+            <span class="footer-contact-item">Tel: +971 4 820 9000</span>
+          </address>
+        </div>
+      </div>
+
+      <div class="footer-gold-separator"></div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          &copy; <span id="current-year">2026</span> Emmanuel Real Estate. All rights reserved. Prices indicated in UAE Dirhams (AED).
+        </p>
+        <div class="footer-legal-links">
+          <span>Confidentiality Protocol</span>
+          <span>•</span>
+          <span>Terms of Representation</span>
+          <span>•</span>
+          <span>DIFC Private Advisory</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./common.js"></script>
+  <script>
+    let allProperties = [];
+
+    async function loadProperties() {
+      const grid = document.getElementById('all-properties-grid');
+      const countLabel = document.getElementById('prop-count-label');
+
+      // Check URL parameters for preset filters
+      const urlParams = new URLSearchParams(window.location.search);
+      const initialCommunity = urlParams.get('community') || 'all';
+      const initialType = urlParams.get('type') || 'all';
+      const initialPrice = urlParams.get('max_price') || 'all';
+
+      if (initialCommunity !== 'all') {
+        const commEl = document.getElementById('filter-community');
+        if (commEl) commEl.value = initialCommunity;
+      }
+      if (initialType !== 'all') {
+        const typeEl = document.getElementById('filter-type');
+        if (typeEl) typeEl.value = initialType;
+      }
+      if (initialPrice !== 'all') {
+        const priceEl = document.getElementById('filter-maxprice');
+        if (priceEl) priceEl.value = initialPrice;
+      }
+
+      try {
+        const res = await fetch('/api/properties');
+        allProperties = await res.json();
+        applyClientFilters();
+      } catch (err) {
+        console.error('Failed to load properties:', err);
+      }
+    }
+
+    function applyClientFilters() {
+      const comm = document.getElementById('filter-community').value;
+      const type = document.getElementById('filter-type').value;
+      const beds = document.getElementById('filter-beds').value;
+      const maxPrice = document.getElementById('filter-maxprice').value;
+
+      let filtered = allProperties.filter(item => {
+        if (comm !== 'all' && item.community_slug !== comm) return false;
+        if (type !== 'all' && item.type.toLowerCase() !== type.toLowerCase()) return false;
+        if (beds !== 'all') {
+          if (beds === '6' && item.bedrooms < 6) return false;
+          if (beds !== '6' && item.bedrooms !== parseInt(beds, 10)) return false;
+        }
+        if (maxPrice !== 'all' && item.price_aed > parseInt(maxPrice, 10)) return false;
+        return true;
+      });
+
+      renderPropertiesGrid(filtered);
+    }
+
+    function renderPropertiesGrid(list) {
+      const grid = document.getElementById('all-properties-grid');
+      const countLabel = document.getElementById('prop-count-label');
+
+      if (countLabel) {
+        countLabel.textContent = `Showing ${list.length} of ${allProperties.length} Curated Residences`;
+      }
+
+      if (list.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 5rem 1rem;">
+            <p style="font-family: var(--font-heading); font-size: 2.2rem; color: var(--color-charcoal); font-weight: 300;">
+              No matching residences found for your selection.
+            </p>
+            <p style="font-size: 0.95rem; color: var(--color-warm-gray); margin-top: 0.5rem; margin-bottom: 2rem;">
+              Our private desk handles confidential off-market acquisitions across all Dubai prime communities.
+            </p>
+            <button type="button" class="btn btn-solid-charcoal" data-modal="register-modal">
+              Inquire For Off-Market Inventory
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = list.map(item => `
+        <a href="./property-detail.html?id=${item.id}" class="property-card" style="text-decoration:none;">
+          <div class="property-media">
+            <img src="${item.image}" alt="${item.title}" class="property-img" loading="lazy">
+            <span class="property-tag-badge">${item.tag || item.type}</span>
+          </div>
+
+          <div class="property-details">
+            <div class="property-gold-line"></div>
+            <h3 class="property-name">${item.title}</h3>
+            <div class="property-meta-row">
+              <span class="property-area-name">${item.community}</span>
+              <span class="property-price">From ${formatAED(item.price_aed)}</span>
+            </div>
+            <div class="property-specs">
+              <span>${item.bedrooms} Bedrooms</span>
+              <span>•</span>
+              <span>${item.bathrooms} Bathrooms</span>
+              <span>•</span>
+              <span>${item.built_up_sqft.toLocaleString()} Sq.Ft</span>
+            </div>
+          </div>
+        </a>
+      `).join('');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadProperties();
+
+      ['filter-community', 'filter-type', 'filter-beds', 'filter-maxprice'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('change', applyClientFilters);
+      });
+
+      const resetBtn = document.getElementById('btn-reset-filters');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          document.getElementById('filter-community').value = 'all';
+          document.getElementById('filter-type').value = 'all';
+          document.getElementById('filter-beds').value = 'all';
+          document.getElementById('filter-maxprice').value = 'all';
+          applyClientFilters();
+        });
+      }
+    });
+  </script>
+</body>
+</html>

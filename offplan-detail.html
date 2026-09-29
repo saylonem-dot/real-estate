@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Off-Plan Landmark Details | Emmanuel Real Estate Dubai</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="main-header" class="site-header solid-header">
+    <div class="header-inner container">
+      <a href="./" class="brand-logo logo-charcoal" aria-label="Emmanuel Real Estate">
+        <div class="logo-text">
+          <span class="logo-title">Emman</span>
+          <span class="logo-divider"></span>
+          <span class="logo-subtitle">REAL ESTATE</span>
+        </div>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="./properties.html" class="nav-link">Properties</a></li>
+          <li><a href="./offplan.html" class="nav-link active">Off-Plan</a></li>
+          <li><a href="./calculator.html" class="nav-link">Mortgage Calculator</a></li>
+          <li><a href="./sell.html" class="nav-link">Sell</a></li>
+          <li><a href="./about.html" class="nav-link">About</a></li>
+          <li><a href="./contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-action">
+        <button type="button" class="btn btn-outline btn-register-trigger" data-modal="register-modal">
+          Register Interest
+        </button>
+        <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+          <span class="toggle-bar"></span>
+          <span class="toggle-bar"></span>
+          <span class="toggle-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-menu-overlay" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-header">
+      <div class="brand-logo logo-white">
+        <div class="logo-text">
+          <span class="logo-title text-white">Emman</span>
+          <span class="logo-divider"></span>
+          <span class="logo-subtitle text-white">REAL ESTATE</span>
+        </div>
+      </div>
+      <button type="button" class="mobile-close" id="mobile-close">&times;</button>
+    </div>
+    <div class="mobile-menu-content">
+      <nav class="mobile-nav">
+        <ul>
+          <li><a href="./properties.html" class="mobile-link">Properties</a></li>
+          <li><a href="./offplan.html" class="mobile-link">Off-Plan</a></li>
+          <li><a href="./calculator.html" class="mobile-link">Mortgage Calculator</a></li>
+          <li><a href="./sell.html" class="mobile-link">Sell</a></li>
+          <li><a href="./about.html" class="mobile-link">About</a></li>
+          <li><a href="./contact.html" class="mobile-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <main>
+    <div class="container detail-page-container">
+      <!-- Breadcrumbs -->
+      <div class="detail-breadcrumbs">
+        <a href="./">Home</a>
+        <span>/</span>
+        <a href="./offplan.html">Off-Plan</a>
+        <span>/</span>
+        <span id="breadcrumb-proj-title" style="color: var(--color-charcoal);">Loading Project...</span>
+      </div>
+
+      <!-- Main Layout Grid -->
+      <div class="detail-layout-grid">
+        <!-- Left: Image, Masterplan, Payment Plan -->
+        <div class="detail-content-col">
+          <div class="detail-gallery-main">
+            <img id="proj-hero-img" src="" alt="Project Render" loading="eager">
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 1.5rem;">
+            <div>
+              <span class="section-gold-label" id="proj-developer-label">DEVELOPER PROJECT</span>
+              <h1 class="page-banner-title" id="proj-title" style="text-align: left; margin-bottom: 0.25rem;">—</h1>
+              <p style="font-size: 0.85rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-warm-gray);" id="proj-community-line">—</p>
+            </div>
+            <div style="text-align: right;">
+              <span style="font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-gold); display: block;">PRICES FROM</span>
+              <div class="detail-price-tag" id="proj-price">—</div>
+            </div>
+          </div>
+
+          <!-- Specs Bar -->
+          <div class="detail-specs-bar">
+            <div class="detail-spec-item">
+              <span class="detail-spec-lbl">HANDOVER DATE</span>
+              <span class="detail-spec-v" id="proj-handover">—</span>
+            </div>
+            <div class="detail-spec-item">
+              <span class="detail-spec-lbl">PAYMENT STRUCTURE</span>
+              <span class="detail-spec-v" style="font-size: 1.05rem;" id="proj-payment-plan">—</span>
+            </div>
+            <div class="detail-spec-item">
+              <span class="detail-spec-lbl">PROJECTED YIELD / ROI</span>
+              <span class="detail-spec-v" style="color: var(--color-gold);" id="proj-roi">—</span>
+            </div>
+            <div class="detail-spec-item">
+              <span class="detail-spec-lbl">PROJECT TYPE</span>
+              <span class="detail-spec-v" style="font-size: 1rem;" id="proj-type">—</span>
+            </div>
+          </div>
+
+          <!-- Masterplan Narrative -->
+          <div style="margin: 2.5rem 0;">
+            <h3 style="font-family: var(--font-heading); font-size: 1.8rem; font-weight: 400; margin-bottom: 1rem; color: var(--color-charcoal);">
+              Architectural Concept & Masterplan
+            </h3>
+            <div class="section-title-divider"></div>
+            <p id="proj-overview" style="font-size: 1rem; line-height: 1.8; color: var(--color-warm-gray); margin-bottom: 2rem;">
+              —
+            </p>
+
+            <h4 style="font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-gold); margin-bottom: 1rem;">
+              EXCLUSIVE PROJECT AMENITIES & SPECIFICATIONS
+            </h4>
+            <div id="proj-features-list" style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <!-- Dynamic features -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: "Download Brochure" Form -->
+        <div class="detail-sidebar-col">
+          <div class="detail-sidebar-card">
+            <span class="section-gold-label">OFFICIAL BROCHURE & FLOORPLANS</span>
+            <h3 style="font-family: var(--font-heading); font-size: 1.85rem; font-weight: 400; margin-bottom: 0.5rem; color: var(--color-charcoal);">
+              Download Investor Dossier
+            </h3>
+            <p style="font-size: 0.85rem; color: var(--color-warm-gray); margin-bottom: 1.75rem; line-height: 1.5;">
+              Receive instant access to high-resolution architectural floorplans, payment milestone schedules, and developer price lists.
+            </p>
+
+            <form id="brochure-form" class="luxury-form" onsubmit="return false;">
+              <!-- Honeypot -->
+              <input type="text" name="honeypot" class="field-honeypot" tabindex="-1" autocomplete="off">
+              <input type="hidden" name="project_title" id="bf-proj-title" value="">
+
+              <div class="form-group">
+                <label class="form-label" for="bf-name">FULL NAME</label>
+                <input type="text" name="name" id="bf-name" class="form-input" placeholder="e.g. Maximilian von Bauer" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="bf-phone">MOBILE / WHATSAPP</label>
+                <input type="tel" name="phone" id="bf-phone" class="form-input" placeholder="+971 50 000 0000" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="bf-email">EMAIL ADDRESS</label>
+                <input type="email" name="email" id="bf-email" class="form-input" placeholder="m.bauer@domain.com">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="bf-profile">INVESTOR PROFILE</label>
+                <select name="investor_profile" id="bf-profile" class="form-input">
+                  <option>Individual Wealth Collector</option>
+                  <option>Family Office Representative</option>
+                  <option>Institutional Fund Manager</option>
+                  <option>End-User Home Buyer</option>
+                </select>
+              </div>
+
+              <button type="submit" id="btn-download-submit" class="btn btn-solid-charcoal w-full">
+                Download Official Brochure
+              </button>
+              <p class="modal-footnote">Direct confidential instant unlock. Zero spam guaranteed.</p>
+            </form>
+
+            <div id="brochure-unlocked-box" class="hidden" style="margin-top: 1.5rem; padding: 1.5rem; background-color: var(--color-offwhite); border: 1px solid var(--color-gold); text-align: center;">
+              <span style="font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-gold); font-weight: 600; display: block; margin-bottom: 0.5rem;">
+                DOSSIER UNLOCKED
+              </span>
+              <p style="font-size: 0.85rem; color: var(--color-charcoal); margin-bottom: 1rem;">
+                Your architectural investor pack has been verified and unlocked.
+              </p>
+              <a href="#" onclick="alert('Dossier generated: Full high-resolution floorplans & 70/30 developer payment schedule document.'); return false;" class="btn btn-gold-border w-full">
+                View Architectural Masterplan (PDF)
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- SIMPLE DARK FOOTER WITH THE LOGO -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="./" class="brand-logo logo-white" aria-label="Emmanuel Real Estate">
+            <div class="logo-text">
+              <span class="logo-title text-white">Emman</span>
+              <span class="logo-divider"></span>
+              <span class="logo-subtitle text-white">REAL ESTATE</span>
+            </div>
+          </a>
+          <p class="footer-mission">
+            Purveyors of architectural distinction across Dubai. Curating extraordinary residences for the world's most discerning collectors.
+          </p>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5 class="footer-heading">RESIDENCES</h5>
+          <ul class="footer-links">
+            <li><a href="./properties.html?community=palm-jumeirah">Palm Jumeirah Villas</a></li>
+            <li><a href="./properties.html?community=downtown">Downtown Penthouses</a></li>
+            <li><a href="./properties.html?community=dubai-marina">Dubai Marina Waterfront</a></li>
+            <li><a href="./properties.html?community=dubai-hills">Dubai Hills Estates</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5 class="footer-heading">NAVIGATION</h5>
+          <ul class="footer-links">
+            <li><a href="./properties.html">Ready Properties</a></li>
+            <li><a href="./offplan.html">Off-Plan Projects</a></li>
+            <li><a href="./calculator.html">Mortgage Calculator</a></li>
+            <li><a href="./sell.html">Sell Your Property</a></li>
+            <li><a href="./about.html">About Emmanuel</a></li>
+            <li><a href="./contact.html">Contact DIFC Office</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5 class="footer-heading">DUBAI HEADQUARTERS</h5>
+          <address class="footer-address">
+            Gate Precinct 4, Level 42<br>
+            Dubai International Financial Centre (DIFC)<br>
+            Dubai, United Arab Emirates<br>
+            <span class="footer-contact-item">Tel: +971 4 820 9000</span>
+          </address>
+        </div>
+      </div>
+
+      <div class="footer-gold-separator"></div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          &copy; <span id="current-year">2026</span> Emmanuel Real Estate. All rights reserved. Prices indicated in UAE Dirhams (AED).
+        </p>
+        <div class="footer-legal-links">
+          <span>Confidentiality Protocol</span>
+          <span>•</span>
+          <span>Terms of Representation</span>
+          <span>•</span>
+          <span>DIFC Private Advisory</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./common.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const projId = urlParams.get('id') || '1';
+
+      try {
+        const res = await fetch(`/api/offplan/${projId}`);
+        if (!res.ok) throw new Error('Project not found');
+        const p = await res.json();
+
+        document.title = `${p.title} | Off-Plan Dubai | Emmanuel Real Estate`;
+        document.getElementById('breadcrumb-proj-title').textContent = p.title;
+        document.getElementById('proj-hero-img').src = p.image;
+        document.getElementById('proj-developer-label').textContent = p.developer_name;
+        document.getElementById('proj-title').textContent = p.title;
+        document.getElementById('proj-community-line').textContent = `${p.community} • DUBAI, UAE`;
+        document.getElementById('proj-price').textContent = formatAED(p.starting_price_aed);
+
+        document.getElementById('proj-handover').textContent = p.handover_date;
+        document.getElementById('proj-payment-plan').textContent = p.payment_plan;
+        document.getElementById('proj-roi').textContent = p.est_roi;
+        document.getElementById('proj-type').textContent = p.project_type;
+
+        document.getElementById('proj-overview').textContent = p.overview;
+        document.getElementById('bf-proj-title').value = p.title;
+
+        const featContainer = document.getElementById('proj-features-list');
+        if (featContainer && p.features) {
+          featContainer.innerHTML = p.features.map(f => `
+            <div style="display:flex; align-items:center; gap:0.75rem; font-size:0.9rem; color:var(--color-charcoal);">
+              <span style="width:5px; height:5px; background:var(--color-gold); display:inline-block;"></span>
+              <span>${f}</span>
+            </div>
+          `).join('');
+        }
+      } catch (err) {
+        console.error('Failed to load off-plan project:', err);
+      }
+
+      // Download brochure submission
+      const brochureForm = document.getElementById('brochure-form');
+      if (brochureForm) {
+        brochureForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          submitFormWithSpamCheck(brochureForm, '/api/brochure', () => {
+            const unlockBox = document.getElementById('brochure-unlocked-box');
+            if (unlockBox) unlockBox.classList.remove('hidden');
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

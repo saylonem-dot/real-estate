@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sell Your Property | Emmanuel Real Estate Dubai</title>
+  <meta name="description" content="Request a confidential property valuation with Emmanuel Real Estate. Representing trophy assets to a global network of UHNW buyers and family offices.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="main-header" class="site-header solid-header">
+    <div class="header-inner container">
+      <a href="./" class="brand-logo logo-charcoal" aria-label="Emmanuel Real Estate">
+        <div class="logo-text">
+          <span class="logo-title">Emman</span>
+          <span class="logo-divider"></span>
+          <span class="logo-subtitle">REAL ESTATE</span>
+        </div>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="./properties.html" class="nav-link">Properties</a></li>
+          <li><a href="./offplan.html" class="nav-link">Off-Plan</a></li>
+          <li><a href="./calculator.html" class="nav-link">Mortgage Calculator</a></li>
+          <li><a href="./sell.html" class="nav-link active">Sell</a></li>
+          <li><a href="./about.html" class="nav-link">About</a></li>
+          <li><a href="./contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-action">
+        <button type="button" class="btn btn-outline btn-register-trigger" data-modal="register-modal">
+          Register Interest
+        </button>
+        <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+          <span class="toggle-bar"></span>
+          <span class="toggle-bar"></span>
+          <span class="toggle-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-menu-overlay" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-header">
+      <div class="brand-logo logo-white">
+        <div class="logo-text">
+          <span class="logo-title text-white">Emman</span>
+          <span class="logo-divider"></span>
+          <span class="logo-subtitle text-white">REAL ESTATE</span>
+        </div>
+      </div>
+      <button type="button" class="mobile-close" id="mobile-close">&times;</button>
+    </div>
+    <div class="mobile-menu-content">
+      <nav class="mobile-nav">
+        <ul>
+          <li><a href="./properties.html" class="mobile-link">Properties</a></li>
+          <li><a href="./offplan.html" class="mobile-link">Off-Plan</a></li>
+          <li><a href="./calculator.html" class="mobile-link">Mortgage Calculator</a></li>
+          <li><a href="./sell.html" class="mobile-link">Sell</a></li>
+          <li><a href="./about.html" class="mobile-link">About</a></li>
+          <li><a href="./contact.html" class="mobile-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <main>
+    <!-- PAGE BANNER -->
+    <section class="page-banner">
+      <div class="container">
+        <span class="section-gold-label">PRIVATE CLIENT ADVISORY</span>
+        <h1 class="page-banner-title">Sell Your Property With Emmanuel</h1>
+        <p class="page-banner-sub">
+          We represent exceptional Dubai residences to an invitation-only circle of qualified international buyers, family offices, and sovereign investors with absolute discretion.
+        </p>
+      </div>
+    </section>
+
+    <!-- VALUATION FORM SECTION -->
+    <section class="section" style="padding-top: 4rem;">
+      <div class="container">
+        <div class="sell-split-layout">
+          <div class="sell-text-col">
+            <span class="section-gold-label">OUR LISTING STANDARDS</span>
+            <h2 class="section-title">Why Entrust Your Trophy Asset To Emmanuel</h2>
+            <div class="section-title-divider"></div>
+            <p class="section-desc">
+              From waterfront Palm Jumeirah villas to crown downtown penthouses, our advisory team brings rigorous valuation modeling, global capital reach, and complete transactional confidentiality.
+            </p>
+
+            <div class="sell-perks-list">
+              <div class="perk-item">
+                <span class="perk-gold-line"></span>
+                <div>
+                  <h4 class="perk-title">Discrete Off-Market Placement</h4>
+                  <p class="perk-text">Trophy residences sold privately without digital footprint or public portal listings.</p>
+                </div>
+              </div>
+              <div class="perk-item">
+                <span class="perk-gold-line"></span>
+                <div>
+                  <h4 class="perk-title">Museum-Grade Architectural Media</h4>
+                  <p class="perk-text">Cinematic 4K daylight & twilight videography, editorial architectural photography, and private virtual salon tours.</p>
+                </div>
+              </div>
+              <div class="perk-item">
+                <span class="perk-gold-line"></span>
+                <div>
+                  <h4 class="perk-title">Verified UHNW Buyer Pool</h4>
+                  <p class="perk-text">Direct bespoke network of vetted cash buyers across London, Geneva, Riyadh, Monaco, and Singapore.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sell-form-col">
+            <div class="sell-form-card">
+              <h3 class="sell-card-title">Request Property Valuation</h3>
+              <p class="sell-card-sub">Receive a comprehensive confidential comparative market valuation report within 24 hours.</p>
+
+              <form id="sell-page-form" class="luxury-form" onsubmit="return false;">
+                <!-- Spam honeypot field -->
+                <input type="text" name="honeypot" class="field-honeypot" tabindex="-1" autocomplete="off">
+
+                <div class="form-group">
+                  <label class="form-label" for="sp-name">OWNER / REPRESENTATIVE NAME</label>
+                  <input type="text" name="name" id="sp-name" class="form-input" placeholder="e.g. Lord Julian Sterling" required>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="sp-phone">PHONE / WHATSAPP</label>
+                    <input type="tel" name="phone" id="sp-phone" class="form-input" placeholder="+971 50 000 0000" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="sp-email">EMAIL ADDRESS</label>
+                    <input type="email" name="email" id="sp-email" class="form-input" placeholder="julian@sterling.co.uk">
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="sp-community">COMMUNITY</label>
+                    <select name="property_community" id="sp-community" class="form-input">
+                      <option value="Palm Jumeirah">Palm Jumeirah</option>
+                      <option value="Downtown">Downtown</option>
+                      <option value="Dubai Marina">Dubai Marina</option>
+                      <option value="Business Bay">Business Bay</option>
+                      <option value="Dubai Hills">Dubai Hills</option>
+                      <option value="JVC">JVC</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="sp-type">PROPERTY TYPE</label>
+                    <select name="property_type" id="sp-type" class="form-input">
+                      <option value="Beachfront Villa">Beachfront Villa</option>
+                      <option value="Sky Penthouse">Sky Penthouse</option>
+                      <option value="Waterfront Villa">Waterfront Villa</option>
+                      <option value="Golf Course Manor">Golf Course Manor</option>
+                      <option value="Designer Apartment">Designer Apartment</option>
+                      <option value="Full Floor Residence">Full Floor Residence</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="sp-beds">BEDROOMS</label>
+                    <select name="bedrooms" id="sp-beds" class="form-input">
+                      <option>1 Bedroom</option>
+                      <option>2 Bedrooms</option>
+                      <option>3 Bedrooms</option>
+                      <option>4 Bedrooms</option>
+                      <option>5 Bedrooms</option>
+                      <option>6+ Bedrooms</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="sp-price">EXPECTED ASKING PRICE (AED)</label>
+                    <input type="number" name="asking_price_aed" id="sp-price" class="form-input" placeholder="e.g. 35000000">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="sp-notes">PROPERTY HIGHLIGHTS & PRIVACY REQUIREMENTS</label>
+                  <textarea name="notes" id="sp-notes" class="form-input form-textarea" rows="3" placeholder="e.g. Off-market representation only, sunset sea views, private mooring..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-solid-charcoal w-full">
+                  Submit Confidential Valuation Request
+                </button>
+                <p class="modal-footnote">Strict client privacy and NDA agreements provided upon request.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SIMPLE DARK FOOTER WITH THE LOGO -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="./" class="brand-logo logo-white" aria-label="Emmanuel Real Estate">
+            <div class="logo-text">
+              <span class="logo-title text-white">Emman</span>
+              <span class="logo-divider"></span>
+              <span class="logo-subtitle text-white">REAL ESTATE</span>
+            </div>
+          </a>
+          <p class="footer-mission">
+            Purveyors of architectural distinction across Dubai. Curating extraordinary residences for the world's most discerning collectors.
+          </p>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5 class="footer-heading">RESIDENCES</h5>
+          <ul class="footer-links">
+            <li><a href="./properties.html?community=palm-jumeirah">Palm Jumeirah Villas</a></li>
+            <li><a href="./properties.html?community=downtown">Downtown Penthouses</a></li>
+            <li><a href="./properties.html?community=dubai-marina">Dubai Marina Waterfront</a></li>
+            <li><a href="./properties.html?community=dubai-hills">Dubai Hills Estates</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5 class="footer-heading">NAVIGATION</h5>
+          <ul class="footer-links">
+            <li><a href="./properties.html">Ready Properties</a></li>
+            <li><a href="./offplan.html">Off-Plan Projects</a></li>
+            <li><a href="./calculator.html">Mortgage Calculator</a></li>
+            <li><a href="./sell.html">Sell Your Property</a></li>
+            <li><a href="./about.html">About Emmanuel</a></li>
+            <li><a href="./contact.html">Contact DIFC Office</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5 class="footer-heading">DUBAI HEADQUARTERS</h5>
+          <address class="footer-address">
+            Gate Precinct 4, Level 42<br>
+            Dubai International Financial Centre (DIFC)<br>
+            Dubai, United Arab Emirates<br>
+            <span class="footer-contact-item">Tel: +971 4 820 9000</span>
+          </address>
+        </div>
+      </div>
+
+      <div class="footer-gold-separator"></div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          &copy; <span id="current-year">2026</span> Emmanuel Real Estate. All rights reserved. Prices indicated in UAE Dirhams (AED).
+        </p>
+        <div class="footer-legal-links">
+          <span>Confidentiality Protocol</span>
+          <span>•</span>
+          <span>Terms of Representation</span>
+          <span>•</span>
+          <span>DIFC Private Advisory</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./common.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sellForm = document.getElementById('sell-page-form');
+      if (sellForm) {
+        sellForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          submitFormWithSpamCheck(sellForm, '/api/valuation');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

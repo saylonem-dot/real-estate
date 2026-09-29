@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin.html
+Disallow: /admin-login
+Disallow: /admin-login.html
+Disallow: /api/admin/
+Disallow: /api/auth/
+
+Sitemap: https://emmanuelrealestate.ae/sitemap.xml
